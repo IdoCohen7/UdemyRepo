@@ -1,0 +1,64 @@
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\bin\Release\net6.0\appsettings.Development.json
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\bin\Release\net6.0\appsettings.json
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\bin\Release\net6.0\UdemyApp.exe
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\bin\Release\net6.0\UdemyApp.deps.json
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\bin\Release\net6.0\UdemyApp.runtimeconfig.json
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\bin\Release\net6.0\UdemyApp.dll
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\bin\Release\net6.0\UdemyApp.pdb
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\bin\Release\net6.0\Microsoft.OpenApi.dll
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\bin\Release\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\bin\Release\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\bin\Release\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.csproj.AssemblyReference.cache
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.AssemblyInfoInputs.cache
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.AssemblyInfo.cs
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.csproj.CoreCompileInputs.cache
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets.build.json
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets.development.json
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets\msbuild.UdemyApp.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets\msbuild.build.UdemyApp.props
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets\msbuild.buildMultiTargeting.UdemyApp.props
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.UdemyApp.props
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets.pack.json
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\scopedcss\bundle\UdemyApp.styles.css
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.csproj.Up2Date
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.dll
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\refint\UdemyApp.dll
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.pdb
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.genruntimeconfig.cache
+C:\Users\idoco\source\repos\UdemyApp\UdemyApp\obj\Release\net6.0\ref\UdemyApp.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\bin\Release\net6.0\appsettings.Development.json
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\bin\Release\net6.0\appsettings.json
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\bin\Release\net6.0\UdemyApp.exe
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\bin\Release\net6.0\UdemyApp.deps.json
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\bin\Release\net6.0\UdemyApp.runtimeconfig.json
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\bin\Release\net6.0\UdemyApp.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\bin\Release\net6.0\UdemyApp.pdb
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\bin\Release\net6.0\Microsoft.OpenApi.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\bin\Release\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\bin\Release\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\bin\Release\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.csproj.AssemblyReference.cache
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.AssemblyInfoInputs.cache
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.AssemblyInfo.cs
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.csproj.CoreCompileInputs.cache
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets.build.json
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets.development.json
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets\msbuild.UdemyApp.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets\msbuild.build.UdemyApp.props
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets\msbuild.buildMultiTargeting.UdemyApp.props
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.UdemyApp.props
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\staticwebassets.pack.json
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\scopedcss\bundle\UdemyApp.styles.css
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.csproj.Up2Date
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\refint\UdemyApp.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.pdb
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\UdemyApp.genruntimeconfig.cache
+C:\Users\idoco\OneDrive\שולחן העבודה\FinalAssignment2\IdoAyaUdemyFinal\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\ref\UdemyApp.dll

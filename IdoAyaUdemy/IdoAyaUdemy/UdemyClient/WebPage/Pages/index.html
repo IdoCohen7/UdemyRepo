@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Udemy | Online Courses</title>
+    <link rel="icon" href="../img/favicon.ico" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <img
+        src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
+        style="padding-left: 15px; padding-top: 15px; width: 80px"
+      />
+      <button class="header-button" onclick="window.location.href='index.html'">
+        Home
+      </button>
+      <button
+        class="header-button"
+        onclick="window.location.href='MyCourses.html'"
+      >
+        My Courses
+      </button>
+      <button
+        class="header-button"
+        onclick="window.location.href='instructorsPage.html'"
+      >
+        Instructors
+      </button>
+
+      <div id="profile">
+        <button
+          id="loginStatus"
+          onclick="window.location.href='SignUp.html'"
+          class="header-button"
+        ></button>
+      </div>
+    </header>
+    <hr />
+    <main>
+      <div id="courses">
+        <table id="coursesTable"></table>
+      </div>
+    </main>
+    <script type="module" src="../Scripts/Script.js"></script>
+    <script type="module" src="../Scripts/JoinedScript.js"></script>
+    <link href="../CSS/Style.css" rel="stylesheet" />
+  </body>
+</html>

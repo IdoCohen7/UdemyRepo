@@ -1,0 +1,306 @@
+body {
+  font-family: "CustomFont", sans-serif;
+  margin-top: 0px;
+}
+
+@font-face {
+  font-family: "CustomFont";
+  src: url("OS Aran FFC 400.ttf") format("truetype");
+}
+
+header {
+  position: fixed; /* Fixed positioning */
+  top: 0; /* Position at the top of the viewport */
+  width: 100%; /* Full width */
+  height: 60px; /* Adjust height as needed */
+  color: #2d2f31;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+  background-color: #ffffff; /* Optional: add a background color */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+#profile {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  padding-right: 50px;
+}
+
+.header-button {
+  font-family: "CustomFont", sans-serif;
+  color: #2d2f31;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px; /* Adjusted font size */
+  font-weight: bold;
+  margin: 20px; /* Adjusted margin to fit smaller height */
+  padding: 5px 10px; /* Adjust padding to balance smaller height */
+  text-align: center;
+}
+
+#loginStatus {
+  font-family: "CustomFont", sans-serif;
+  color: #a435f0;
+  background: #e7e7e7; /* Light grey background */
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 20px; /* Border radius to create an oval shape */
+  padding-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-button:hover,
+.header-button:focus {
+  color: #a435f0;
+}
+
+header img {
+  height: 40px; /* Adjust logo size to fit within the smaller header */
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+main {
+  overflow: auto;
+  margin-top: 60px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #2d2f31;
+}
+
+#coursesTable td,
+#aCoursesTable td,
+#instructorsTable td,
+#adminTable td {
+  padding: 20px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #ccc;
+  width: calc(100% / 3);
+  box-sizing: border-box;
+}
+
+#coursesTable img,
+#aCoursesTable img,
+#instructorsTable img,
+#adminTable img {
+  max-width: 300px;
+  float: left;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.course-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.course-info {
+  font-size: 16px;
+  display: inline-block;
+  text-align: left;
+}
+.course-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #2d2f31;
+}
+.enroll-button,
+.once-button {
+  font-family: "CustomFont", sans-serif;
+  font-weight: bold;
+  float: right;
+  background-color: #a435f0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 50px;
+}
+
+.disabled-button {
+  opacity: 0.5; /* Reduce opacity to indicate disabled state */
+  cursor: not-allowed; /* Change cursor to indicate not allowed */
+  pointer-events: none; /* Disable pointer events */
+}
+
+.enroll-button:hover {
+  background-color: #a435f0;
+}
+
+#courseNum {
+  text-align: center;
+  background: #e7e7e7; /* Light grey background */
+  border-radius: 20px; /* Border radius to create an oval shape */
+  color: #a435f0;
+  font-size: 30px;
+  margin: 20px;
+  padding: 10px 20px;
+}
+
+.search,
+#signUpForm td,
+#logInForm td {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #a435f0;
+  text-align: center;
+}
+
+.search {
+  justify-content: space-evenly;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#cTable {
+  padding: 30px;
+}
+#cTable td {
+  padding: 12px;
+}
+
+#adminTable {
+  display: block; /* Changed from flex to block */
+  margin: 20px auto;
+}
+
+#display,
+#adminFunc {
+  display: flex;
+  justify-content: center;
+  background: #e7e7e7; /* Light grey background */
+  border-radius: 20px; /* Border radius to create an oval shape */
+}
+
+#display > button,
+#adminFunc > button {
+  margin: 20px;
+}
+
+#adminTable tr {
+  display: table-row; /* Ensure rows are displayed as table rows */
+}
+
+#instructorsTable img {
+  border-radius: 7%;
+  border: 1.25px solid #2d2f31;
+}
+.course-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #2d2f31;
+  text-align: left;
+}
+
+.course-title::after {
+  content: "";
+  display: block;
+  margin-top: 5px;
+}
+
+.course-info {
+  font-size: 15px;
+  text-align: left;
+}
+.search-button {
+  font-family: "CustomFont", sans-serif;
+  font-weight: bold;
+  background-color: #a435f0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin: 10px;
+}
+
+.search-button:hover {
+  background-color: #2d2f31;
+}
+
+/* Container for both forms */
+#signUp {
+  display: flex; /* Use Flexbox to layout children horizontally */
+  justify-content: space-between; /* Add space between the forms */
+  gap: 20px; /* Alternatively, use gap for spacing (if supported) */
+  padding: 20px; /* Add some padding around the container */
+}
+
+/* Ensure the forms have some styling */
+#signUp form {
+  border: 1px solid #ccc; /* Add a border to each form */
+  padding: 20px; /* Add padding inside each form */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  background-color: #f9f9f9; /* Background color for forms */
+  width: 45%; /* Adjust width as needed */
+}
+
+/* Styling for table cells within forms */
+#signUp td {
+  padding: 10px; /* Add padding to table cells */
+}
+
+#signUp td input[type="submit"] {
+  display: block; /* Make submit button block level to take full width */
+  width: 100%; /* Full width of parent td */
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  padding: 10px 0; /* Vertical padding */
+  border: none; /* Remove border */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size */
+}
+
+#signUp td input[type="submit"]:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.edit-course-form {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Ensure it spans the entire width of the table row */
+}
+
+.edit-course-form-inner {
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: calc(
+    100% - 40px
+  ); /* Limit the maximum width to ensure it fits within the table row */
+  width: auto; /* Allow the form to adjust its width based on content */
+}
+
+#newCourse {
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+}
+
+#newCourseTable {
+  margin: 0 auto;
+  width: 50%;
+}

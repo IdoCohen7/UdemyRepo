@@ -1,0 +1,138 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\idoayaudemy\\idoayaudemy\\udemyapp\\udemyapp\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|solutionrelative:udemyapp\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\idoayaudemy\\idoayaudemy\\udemyapp\\udemyapp\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|solutionrelative:udemyapp\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\idoayaudemy\\idoayaudemy\\udemyapp\\udemyapp\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|solutionrelative:udemyapp\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\idoayaudemy\\idoayaudemy\\udemyapp\\udemyapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|solutionrelative:udemyapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\idoayaudemy\\idoayaudemy\\udemyapp\\udemyapp\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|solutionrelative:udemyapp\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\idoayaudemy\\idoayaudemy\\udemyapp\\udemyapp\\controllers\\instructorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|solutionrelative:udemyapp\\controllers\\instructorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\idoayaudemy\\idoayaudemy\\udemyapp\\udemyapp\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|solutionrelative:udemyapp\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "UdemyApp\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "UdemyApp\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBEAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:48:29.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\User.cs",
+              "RelativeDocumentMoniker": "UdemyApp\\User.cs",
+              "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\User.cs",
+              "RelativeToolTip": "UdemyApp\\User.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAA9wEIAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T16:57:22.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Program.cs",
+              "RelativeDocumentMoniker": "UdemyApp\\Program.cs",
+              "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Program.cs",
+              "RelativeToolTip": "UdemyApp\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-14T07:45:52.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Instructor.cs",
+              "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Instructor.cs",
+              "RelativeDocumentMoniker": "UdemyApp\\Instructor.cs",
+              "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Instructor.cs",
+              "RelativeToolTip": "UdemyApp\\Instructor.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAlwBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T13:38:59.245Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Course.cs",
+              "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Course.cs",
+              "RelativeDocumentMoniker": "UdemyApp\\Course.cs",
+              "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Course.cs",
+              "RelativeToolTip": "UdemyApp\\Course.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAywCkAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T13:11:03.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InstructorsController.cs",
+              "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Controllers\\InstructorsController.cs",
+              "RelativeDocumentMoniker": "UdemyApp\\Controllers\\InstructorsController.cs",
+              "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Controllers\\InstructorsController.cs",
+              "RelativeToolTip": "UdemyApp\\Controllers\\InstructorsController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwBsAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T13:44:34.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CoursesController.cs",
+              "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Controllers\\CoursesController.cs",
+              "RelativeDocumentMoniker": "UdemyApp\\Controllers\\CoursesController.cs",
+              "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Controllers\\CoursesController.cs",
+              "RelativeToolTip": "UdemyApp\\Controllers\\CoursesController.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAgwCkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T13:10:47.218Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

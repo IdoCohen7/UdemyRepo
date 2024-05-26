@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Udemy | Online Courses</title>
+    <link rel="icon" href="../img/favicon.ico" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <img
+        src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
+        style="padding-left: 15px; padding-top: 15px; width: 80px"
+      />
+      <button class="header-button" onclick="window.location.href='index.html'">
+        Home
+      </button>
+      <button
+        class="header-button"
+        onclick="window.location.href='MyCourses.html'"
+      >
+        My Courses
+      </button>
+      <button
+        class="header-button"
+        onclick="window.location.href='instructorsPage.html'"
+      >
+        Instructors
+      </button>
+
+      <div id="profile">
+        <button
+          id="loginStatus"
+          onclick="window.location.href='SignUp.html'"
+          class="header-button"
+        ></button>
+      </div>
+    </header>
+    <main>
+      <h1 id="courseNum" class=".oval-background"></h1>
+      <div class="search">
+        <div id="searchByDur">
+          <p>Search course by duration range:</p>
+          <input type="text" id="durStartBttn" />min duration
+          <input type="text" id="durEndBttn" />max duration
+          <br />
+          <button id="durBttn" class="search-button">search</button>
+        </div>
+        <div id="searchByRate">
+          <p>Search course by rating range:</p>
+          <input type="text" id="rateStartBttn" />min rating
+          <input type="text" id="rateEndBttn" />max rating
+          <br />
+          <button id="rateBttn" class="search-button">search</button>
+        </div>
+      </div>
+      <table id="aCoursesTable"></table>
+    </main>
+    <script type="module" src="../Scripts/JoinedScript.js"></script>
+    <script type="module" src="../Scripts/Script2.js"></script>
+    <link href="../CSS/Style.css" rel="stylesheet" />
+  </body>
+</html>
