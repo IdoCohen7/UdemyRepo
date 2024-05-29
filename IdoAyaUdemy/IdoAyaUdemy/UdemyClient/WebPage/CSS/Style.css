@@ -1,7 +1,7 @@
 body {
   font-family: "CustomFont", sans-serif;
   margin-top: 0px;
-  color:#2d2f31;
+  color: #2d2f31;
   font-size: 17px;
   font-weight: 100;
   text-align: center;
@@ -63,7 +63,7 @@ header {
 }
 
 header img {
-  height:90px; /* Adjust logo size to fit within the smaller header */
+  height: 90px; /* Adjust logo size to fit within the smaller header */
   padding-bottom: 10px;
 }
 main {
@@ -85,7 +85,6 @@ hr {
   border-style: solid;
   border-color: #ccc;
   width: calc(100% / 3);
-
 }
 
 #coursesTable img,
@@ -140,7 +139,7 @@ hr {
 }
 
 #courseNum {
-  background: #2d2f31; 
+  background: #2d2f31;
   color: #ffffff;
   font-size: 20px;
   padding: 20px 20px;
@@ -149,8 +148,8 @@ hr {
   text-align: center;
   justify-content: center; /* כדי להבטיח שהטקסט יישאר במרכז */
 }
-.search,
- {
+
+.search {
   display: flex;
   justify-content: space-between;
   font-size: 18px;
@@ -264,7 +263,6 @@ hr {
   padding: 0; /* אין מרווח בין התוכן לגבולות */
 }
 
-
 #newCourseTable {
   margin: 0 auto;
   width: 50%;
@@ -279,20 +277,19 @@ hr {
   background-size: cover;
 }
 
-
-.rating-wrap{
-	max-width: 480px;
-	margin: auto;
-	padding: 15px;
-	box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
-	text-align: center;
+.rating-wrap {
+  max-width: 480px;
+  margin: auto;
+  padding: 15px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
-.center{
-	width: 162px; 
-	margin: auto;
+.center {
+  width: 162px;
+  margin: auto;
 }
-.carousel-item{
+.carousel-item {
   height: 32rem;
   background-color: #777;
   color: #2d2f31;
@@ -450,8 +447,7 @@ section {
   flex-basis: 50%;
   text-align: center;
 }
-ד
-.overlay-container .overlay h1 {
+ד .overlay-container .overlay h1 {
   font-family: "Montserrat";
   font-size: 40px;
   font-weight: 300;
@@ -465,7 +461,7 @@ section {
 }
 .overlay-container .overlay button {
   background-color: white;
-  color:#a435f0;
+  color: #a435f0;
   margin-top: 20px;
 }
 
@@ -511,9 +507,9 @@ section {
   margin-bottom: 10px; /* הוספת מרווח בין ה-input לבין אלמנטים אחרים */
 }
 
-
-
-input[type="text"], input[type="submit"], button[type="submit"] {
+input[type="text"],
+input[type="submit"],
+button[type="submit"] {
   margin: 4px 4px; /* מרווחים פנימיים */
   box-sizing: border-box; /* כולל את הריווח בגודל האלמנט */
   border: none; /* ללא גבול */
@@ -604,7 +600,7 @@ input[type="text"], input[type="submit"], button[type="submit"] {
   align-content: space-around;
   justify-content: center;
   align-items: center;
-  color:#ffffff;
+  color: #ffffff;
   font-size: 20px;
 }
 #browser {
