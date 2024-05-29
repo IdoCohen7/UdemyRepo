@@ -18,9 +18,16 @@ namespace UdemyApp.Controllers
 
         // GET api/<InstructorsController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            var instructor = Instructor.Read().FirstOrDefault(inst => inst.Id == id);
+
+            if (instructor == null)
+            {
+                return NotFound(); // Return 404 
+            }
+
+            return Ok(instructor); 
         }
 
         // POST api/<InstructorsController>

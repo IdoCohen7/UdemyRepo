@@ -13,6 +13,9 @@ function ajaxCall(method, api, data, successCB, errorCB) {
     });
   }
 
+$(document).ready(function() {
+  ShowAllCourses();
+})
 
 $("#loadCoursesBttn").click(function () {
     let api = 'https://localhost:7061/api/Courses';
@@ -39,7 +42,10 @@ $("#loadCoursesBttn").click(function () {
         $("#loadCoursesBttn").prop("disabled", true);
 
     });
-});
+
+    ShowAllCourses();
+}
+);
 
 function PostCourseToServerSCB(message) {
     console.log(message);
@@ -54,171 +60,266 @@ function ShowAllCourses() {
   setTimeout(ajaxCall("GET", api, "", GetCoursesSCB, GetCoursesECB), 12000000);
 }
 
-$("#showCoursesBttn").click(function() {
-  ShowAllCourses();
-})
 
 function GetCoursesECB() {
   alert("Unable to render courses");
 }
 
 function GetCoursesSCB(coursesList) {
-  let table = document.getElementById("adminTable");
-  table.innerHTML = "";
-  coursesList.forEach((course, index) => {
-    let row = document.createElement("tr");
-    row.id = index;
-
-    let cell = document.createElement("td");
-
-    let image = document.createElement("img");
-    image.src = course.imageRef;
-    cell.appendChild(image);
-
-    let title = document.createElement("h3");
-    title.textContent = course.title;
-    title.classList.add("course-title");
-    cell.appendChild(title);
-
-    let info = document.createElement("div");
-    info.innerHTML = "<p>Duration: " + course.duration + " total hours</p>";
-    info.innerHTML += "<p>Rating: " + course.rating + "</p>";
-    info.innerHTML += "<p>Reviews: " + course.numOfReviews + "</p>";
-    info.innerHTML += "<p>Last Updated: " + course.lastUpdate + "</p>";
-    let courseURL = "https://www.udemy.com" + course.url;
-    let courseLink = document.createElement("a");
-    courseLink.href = courseURL;
-    courseLink.textContent = "Visit Page"; // Set the text content of the link
-    courseLink.classList.add("enroll-button");
-
-    info.classList.add("course-info");
-    cell.appendChild(info);
-
-    let button = document.createElement("button");
-    button.textContent = "Edit";
-    button.classList.add("enroll-button");
-    button.value = course.id;
-    button.addEventListener("click", function () {
-      EditCourse(button.value, row.id);
-    });
-    cell.appendChild(button);
-    cell.appendChild(courseLink);
-    row.appendChild(cell);
-
-    table.appendChild(row);
-  });
+  let coursesDL = document.getElementById("browsers");
+  coursesDL.innerHTML = '';  // Clear existing options
+  for (let i = 0; i < coursesList.length; i++) {
+    let option = document.createElement("option");
+    option.value = coursesList[i].title;
+    option.setAttribute("data-id", coursesList[i].id);  // Add the data-id attribute
+    coursesDL.appendChild(option);
+  }
 }
-
-$("#createCourseBttn").click(function() {
-
+$("#createCourseBttn").click(function () {
   let newForm = document.createElement("form");
+  newForm.id = "createCourseForm";
+
   let table = document.createElement("table");
   table.id = "newCourseTable";
 
-  let newCourse= {
+  let newCourse = {
     Id: "",
-        Title: "",
-        Url: "",
-        Rating: 0,
-        NumOfReviews: 0,
-        InstructorId: 1,
-        ImageRef: "",
-        Duration: 1,
-        LastUpdate: ""
-  }
+    Title: "",
+    Url: "",
+    Rating: 0,
+    NumOfReviews: 0,
+    InstructorId: 1,
+    ImageRef: "",
+    Duration: 1,
+    LastUpdate: ""
+  };
 
   for (const key in newCourse) {
-    if (newCourse.hasOwnProperty(key) && !(newCourse[key] === 0) && key!="LastUpdate") {
-        let newInput = document.createElement("input");
-        let newRow = document.createElement("tr");
-        let newCell = document.createElement("td");
-        let newP = document.createElement("p");
-        newP.innerHTML = key;
-        newInput.type = "text";
-        newInput.id = "newCourse" + key;
-        newCell.appendChild(newP);
-        newCell.appendChild(newInput);
-        newRow.appendChild(newCell);
-        table.appendChild(newRow);
-        
-        
+    if (newCourse.hasOwnProperty(key) && !(newCourse[key] === 0) && key != "LastUpdate") {
+      let newInput = document.createElement("input");
+      newInput.type = "text";
+      newInput.required = true;
+      newInput.id = "newCourse" + key;
+
+      let newRow = document.createElement("tr");
+      let newCell = document.createElement("td");
+      let newP = document.createElement("p");
+      newP.innerHTML = key;
+      
+      newCell.appendChild(newP);
+      newCell.appendChild(newInput);
+      newRow.appendChild(newCell);
+      table.appendChild(newRow);
     }
+  }
+
+  let submitBttn = document.createElement("input");
+  submitBttn.type = "submit";
+  submitBttn.value = "SUBMIT";
+
+  let headline = document.createElement("h1");
+  headline.innerHTML = "Enter the course's details:";
+  
+  newForm.appendChild(table);
+  newForm.appendChild(submitBttn);
+  
+  let theDiv = document.getElementById("newCourse");
+  theDiv.innerHTML = ""; // Clear previous content
+  theDiv.appendChild(headline);
+  theDiv.appendChild(newForm);
+
+  // Attach submit event handler to the form
+  newForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    createCourse();
+  });
+});
+
+function createCourse() {
+  let api = "https://localhost:7061/api/Instructors/" + $("#newCourseInstructorId").val();
+  ajaxCall("GET", api, null, secondCreateCourse, getInstructorECB);
+
 }
-let submitBttn = document.createElement("input");
-submitBttn.type = "submit";
-submitBttn.value = "SUBMIT";
-let headline = document.createElement("h1");
-headline.innerHTML = "Enter the course's details:";
-newForm.appendChild(table);
-newForm.appendChild(submitBttn);
-let theDiv = document.getElementById("newCourse");
-theDiv.appendChild(headline);
-theDiv.appendChild(newForm);
+
+function secondCreateCourse(instructor) {
 
 
+  if (instructor!=null) {
+    let api = "https://localhost:7061/api/Courses/Create";
+
+  let newCourse = {
+    Id: parseInt($("#newCourseId").val()),
+    Title: $("#newCourseTitle").val(),
+    Url: $("#newCourseUrl").val(),
+    Rating: 0,
+    NumOfReviews: 0,
+    InstructorId: parseInt($("#newCourseInstructorId").val()),
+    ImageRef: $("#newCourseImageRef").val(),
+    Duration: parseFloat($("#newCourseDuration").val()),
+    LastUpdate: ""
+  };
+
+  ajaxCall("POST", api, JSON.stringify(newCourse), createCourseSCB, createCourseECB);
+
+  }
+
+  else {
+    alert("ERROR:no instructor matches that ID, make sure to load instructors");
+  }
+
+  
 }
-)
 
-function EditCourse(id, row) {
-  let currentRow = document.getElementById(row);
-  let newCell = document.createElement("td");
-  newCell.innerHTML = id;
-  currentRow.appendChild(newCell);
-
+function getInstructorECB(error) {
+  alert("ERROR: No instructor matches this Id");
 }
-/*
-function EditCourse(id, row) {
-  let xrow = document.getElementById(row);
-  let editDiv = document.createElement("div");
-  editDiv.classList.add("edit-course-form");
 
-  // Create form elements
-  let form = document.createElement("form");
-  form.classList.add("edit-course-form-inner");
+function createCourseSCB(response) {
+  if (response) {
+      alert("Course created successfully");
+  } else {
+      alert("Course creation failed: duplicate title or ID");
+  }
+}
 
-  let titleLabel = document.createElement("label");
-  titleLabel.textContent = "Title:";
+function createCourseECB(jqXHR) {
+  alert(`Failed to create course: ${jqXHR.responseText}`);
+}
+
+$(document).ready(function() {
+  $('#submitButton').on('click', function() {
+      var inputVal = $('#browser').val();
+      var selectedOption = $("#browsers option[value='" + inputVal + "']");
+      var additionalData = selectedOption.data('id');
+
+      if (additionalData !== undefined) {
+          console.log('User input:', inputVal);
+          console.log('Additional data (course ID):', additionalData);
+      } else {
+          console.log('No additional data for:', inputVal);
+      }
+
+      let api = "https://localhost:7061/api/Courses/" + additionalData;
+
+      ajaxCall("GET", api, null, GetCourseEditSCB, GetCourseEditECB );
+  });
+});
+
+function GetCourseEditSCB(course) {
+  let div = document.getElementById("editDiv");
+  div.innerHTML = "";
+  let editForm = document.createElement("form");
+  editForm.id = "editForm";
+  let editTable = document.createElement("table");
+
+  // Title
+  let titleTR = document.createElement("tr");
+  let titleTD = document.createElement("td");
+  titleTD.innerHTML = "Title:";
+  let titleValTD = document.createElement("td");
   let titleInput = document.createElement("input");
   titleInput.type = "text";
-  titleInput.value = courses[row].title;
+  titleInput.value = course.title;
+  titleInput.id = "editTitleTB";
+  titleInput.required = true;
+  titleValTD.appendChild(titleInput);
+  titleTR.appendChild(titleTD);
+  titleTR.appendChild(titleValTD);
+  editTable.appendChild(titleTR);
 
-  let urlLabel = document.createElement("label");
-  urlLabel.textContent = "URL:";
-  let urlInput = document.createElement("input");
-  urlInput.type = "text";
-  urlInput.value = courses[row].url;
-
-  let durationLabel = document.createElement("label");
-  durationLabel.textContent = "Duration (hours):";
+  // Duration
+  let durationTR = document.createElement("tr");
+  let durationTD = document.createElement("td");
+  durationTD.innerHTML = "Duration:";
+  let durationValTD = document.createElement("td");
   let durationInput = document.createElement("input");
   durationInput.type = "number";
-  durationInput.value = courses[row].duration;
+  durationInput.step = "any";
+  durationInput.required = true;
+  durationInput.value = course.duration;
+  durationInput.id = "editDurationTB";
+  durationValTD.appendChild(durationInput);
+  durationTR.appendChild(durationTD);
+  durationTR.appendChild(durationValTD);
+  editTable.appendChild(durationTR);
 
-  let submitBtn = document.createElement("button");
-  submitBtn.textContent = "Submit";
-  submitBtn.addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent form submission
-    // Update course details
-    courses[id].Title = titleInput.value;
-    courses[id].Url = urlInput.value;
-    courses[id].Duration = parseFloat(durationInput.value);
-    // Hide the edit form
-    editDiv.style.display = "none";
+  // URL
+  let urlTR = document.createElement("tr");
+  let urlTD = document.createElement("td");
+  urlTD.innerHTML = "URL:";
+  let urlValTD = document.createElement("td");
+  let urlInput = document.createElement("input");
+  urlInput.type = "text";
+  urlInput.required = true; 
+  urlInput.value = course.url;
+  urlInput.id = "editUrlTB";
+  urlValTD.appendChild(urlInput);
+  urlTR.appendChild(urlTD);
+  urlTR.appendChild(urlValTD);
+  editTable.appendChild(urlTR);
+
+  // Image Reference
+  let imageRefTR = document.createElement("tr");
+  let imageRefTD = document.createElement("td");
+  imageRefTD.innerHTML = "Image Reference:";
+  let imageRefValTD = document.createElement("td");
+  let imageRefInput = document.createElement("input");
+  imageRefInput.type = "text";
+  imageRefInput.value = course.imageRef;
+  imageRefInput.id = "editImageRefTB";
+  imageRefValTD.appendChild(imageRefInput);
+  imageRefTR.appendChild(imageRefTD);
+  imageRefTR.appendChild(imageRefValTD);
+  editTable.appendChild(imageRefTR);
+
+
+  let submitButton = document.createElement("button");
+  submitButton.type = "submit";
+  submitButton.innerHTML = "Submit";
+  submitButton.id = "submitEdit";
+
+  editForm.appendChild(editTable);
+  editForm.appendChild(submitButton);
+
+  div.appendChild(editForm);
+
+  $("#editForm").submit(function() {
+      EditCourse(course);
+      return false;
   });
-
-  // Append form elements to form
-  form.appendChild(titleLabel);
-  form.appendChild(titleInput);
-  form.appendChild(urlLabel);
-  form.appendChild(urlInput);
-  form.appendChild(durationLabel);
-  form.appendChild(durationInput);
-  form.appendChild(submitBtn);
-
-  // Append form to editDiv
-  editDiv.appendChild(form);
-
-  // Append editDiv to xrow
-  xrow.appendChild(editDiv);
 }
-*/
+
+function EditCourse(course) {
+  let api = "https://localhost:7061/api/Courses/" + course.id;
+
+  let editedCourse = {
+      Id: course.id, 
+      Title: $("#editTitleTB").val(),
+      Url: $("#editUrlTB").val(),
+      Rating: 0,
+      NumOfReviews: 0,
+      InstructorId: course.instructorId, 
+      ImageRef: $("#editImageRefTB").val(),
+      Duration: parseFloat($("#editDurationTB").val()), 
+      LastUpdate: "" // updated in the server
+  };
+
+  console.log(editedCourse);
+
+  ajaxCall("PUT", api, JSON.stringify(editedCourse), EditCourseSCB, EditCourseECB);
+}
+
+
+function EditCourseSCB(message) {
+  alert("Course updated successfully: " + message);
+}
+
+function EditCourseECB(jqXHR) {
+  console.log("Error:", jqXHR);
+}
+
+
+function GetCourseEditECB(error) {
+  alert(error);
+}
+

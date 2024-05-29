@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using UdemyApp;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -18,9 +19,16 @@ namespace UdemyApp.Controllers
 
         // GET api/<CoursesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Course Get(int id)
         {
-            return "value";
+            for (int i=0; i<Course.Read().Count; i++)
+            {
+                if (Course.Read()[i].Id == id)
+                {
+                    return Course.Read()[i];
+                }
+            }
+            return null;
         }
 
         // POST api/<CoursesController>
@@ -30,10 +38,47 @@ namespace UdemyApp.Controllers
             return course.Insert();
         }
 
+        // POST api/<CoursesController>/Create
+        [HttpPost("Create")]
+        public bool Create([FromBody] Course course)
+        {
+            
+            Course newCourse = new Course(
+                id: course.Id, 
+                title: course.Title,
+                url: course.Url,
+                rating: 0,
+                numOfReviews: 0,
+                instructorId: course.InstructorId,
+                imageRef: course.ImageRef,
+                duration: course.Duration,
+                lastUpdate: DateTime.Now.ToString("dd/MM/yyyy")
+            );
+
+            
+            return newCourse.Insert();
+        }
+
         // PUT api/<CoursesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
+        public bool Put(int id, [FromBody] Course updatedValue)
+            {
+            Course editedCourse = Get(id);
+            Console.WriteLine(editedCourse);
+            if (editedCourse != null)
+            {
+                editedCourse.Title = updatedValue.Title;
+                editedCourse.Url = updatedValue.Url;
+                editedCourse.Duration = updatedValue.Duration;
+                if (updatedValue.ImageRef!= string.Empty)
+                {
+                    editedCourse.ImageRef = updatedValue.ImageRef;
+                }
+                editedCourse.LastUpdate = DateTime.Now.ToString("dd/MM/yyyy");
+                return true;
+
+            }
+            return false;
         }
 
         // DELETE api/<CoursesController>/5

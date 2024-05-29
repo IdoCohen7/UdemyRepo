@@ -93,21 +93,5 @@ namespace UdemyApp
             coursesList.Remove(this);
         }
 
-        public void Edit(string title, string url, double duration, string imageRef)
-        {
-            DateTime tempTime = DateTime.Now;
-            string formattedDate = tempTime.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-            this.lastUpdate = formattedDate;
-            this.title = title;
-            this.url = url;
-            this.duration = duration;
-            
-            if (ImageRef!=string.Empty)
-            {
-                this.ImageRef = imageRef;
-            }
-  
-        }
-
     }
 }

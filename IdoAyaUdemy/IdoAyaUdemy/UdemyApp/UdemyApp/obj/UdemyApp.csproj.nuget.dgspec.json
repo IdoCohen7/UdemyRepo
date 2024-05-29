@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj": {}
+    "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj": {
+    "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj",
+        "projectUniqueName": "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj",
         "projectName": "UdemyApp",
-        "projectPath": "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj",
+        "projectPath": "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj",
         "packagesPath": "C:\\Users\\idoco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\obj\\",
+        "outputPath": "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\idoco\\AppData\\Roaming\\NuGet\\NuGet.Config",

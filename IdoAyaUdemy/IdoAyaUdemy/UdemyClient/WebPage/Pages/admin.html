@@ -43,9 +43,6 @@
         <button class="once-button" id="loadCoursesBttn">
           Load all courses
         </button>
-        <button class="once-button" id="showCoursesBttn">
-          Show all courses
-        </button>
         <button class="once-button" id="createCourseBttn">
           Create new course
         </button>
@@ -54,6 +51,13 @@
         <div id="newCourse"></div>
           
       <table id="adminTable"></table>
+      <label for="browser">Choose a course from the list:</label>
+      <input list="browsers" id="browser" name="browser">
+      <datalist id="browsers">
+      </datalist>
+      <button id="submitButton">Edit</button>
+      <div id="editDiv"></div>
+
     </main>
     <script type="module" src="../Scripts/JoinedScript.js"></script>
     <script type="module" src="../Scripts/adminScript.js"></script>

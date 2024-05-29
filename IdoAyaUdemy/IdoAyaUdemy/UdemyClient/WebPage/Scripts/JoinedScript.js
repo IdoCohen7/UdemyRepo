@@ -12,15 +12,8 @@ function ajaxCall(method, api, data, successCB, errorCB) {
 }
 
 $(".once-button").click(function () {
-  // Fade out the button to visually indicate that it's disabled
   $(this).fadeOut("fast", function () {
-    // After fading out, add the disabled class
     $(this).addClass("disabled-button");
-
-    // Perform the enroll action (or any other action)
-    // Here you can put the logic for enrolling the user in the course
-
-    // Fade in the button to visually indicate that it's enabled
     $(this).fadeIn("fast");
   });
 });
