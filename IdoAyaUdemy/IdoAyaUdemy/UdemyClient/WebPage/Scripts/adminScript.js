@@ -115,7 +115,8 @@ $("#createCourseBttn").click(function () {
 
   let submitBttn = document.createElement("input");
   submitBttn.type = "submit";
-  submitBttn.value = "SUBMIT";
+  submitBttn.value = "SUBMIT"; 
+  submitBttn.dataset.false = "false";
 
   let headline = document.createElement("h1");
   headline.innerHTML = "Enter the course's details:";
