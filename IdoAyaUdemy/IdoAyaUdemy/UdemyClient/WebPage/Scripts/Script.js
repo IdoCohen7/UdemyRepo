@@ -48,8 +48,15 @@ function ajaxCall(method, api, data, successCB, errorCB) {
         cell.appendChild(info);
     
         let button = document.createElement("button");
-        button.textContent = "Add";
+        let icon = document.createElement("i");
+        icon.classList.add("fas", "fa-cart-plus"); // Add Font Awesome classes for the cart-plus icon
+        button.appendChild(icon); // Append the icon to the button
+        button.appendChild(document.createTextNode(" Add")); // Add text node for "Add" text
+    
         button.classList.add("enroll-button");
+        // Set the value of the button to hold the index of the course in the courses array
+        button.value = index;
+        button.addEventListener("click", function(){PostToServer(button.value)});
         
         
         // Set the value of the button to hold the index of the course in the courses array

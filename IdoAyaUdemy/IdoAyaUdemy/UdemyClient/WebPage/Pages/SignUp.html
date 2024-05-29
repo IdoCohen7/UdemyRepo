@@ -8,117 +8,103 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
-    <header>
-      <img
-        src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
-        style="padding-left: 15px; padding-top: 15px; width: 80px"
-      />
-      <button class="header-button" onclick="window.location.href='index.html'">
-        Home
-      </button>
-      <button
-        class="header-button"
-        onclick="window.location.href='MyCourses.html'"
-      >
-        My Courses
-      </button>
-      <button
-        class="header-button"
-        onclick="window.location.href='instructorsPage.html'"
-      >
-        Instructors
-      </button>
+  <header>
+    <img
+      src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
+      style="padding-left: 15px; padding-top: 15px; width: 80px"
+    />
+    <button class="header-button" onclick="window.location.href='index.html'">
+      Home
+    </button>
+    <button
+      class="header-button"
+      onclick="window.location.href='MyCourses.html'"
+    >
+      My Courses
+    </button>
+    <button
+      class="header-button"
+      onclick="window.location.href='instructorsPage.html'"
+    >
+      Instructors
+    </button>
 
-      <div id="profile">
-        <button
-          id="loginStatus"
-          onclick="window.location.href='SignUp.html'"
-          class="header-button"
-        ></button>
+    <div id="profile">
+      <button
+        id="loginStatus"
+        onclick="window.location.href='SignUp.html'"
+        class="header-button"
+      ></button>
+    </div>
+  </header>
+  <body>
+    <section>
+      <div class="container">
+        <div class="form sign-in-form">
+          <div class="wrapper">
+            <form action="#" id="logInForm">
+              <h1>Sign In</h1>
+                    <input
+                      type="text"
+                      id="email2TB"
+                      placeholder="Email"
+                      required
+                    />
+                    <input
+                      type="password"
+                      id="password2TB"
+                      placeholder="Password"
+                      required
+                    />
+                    <input type="submit" value="Sign In" required />
+            </form>
+          </div>
+        </div>
+        <div class="form sign-up-form active">
+          <div class="wrapper">
+            <form action="#" id="signUpForm">
+              <h1>new here? sign up</h1>
+                    <input
+                      type="text"
+                      id="nameTB"
+                      placeholder="Full Name"
+                      required
+                    />
+                    <input
+                      type="text"
+                      id="emailTB"
+                      placeholder="Email"
+                      required
+                    />
+                    <input
+                      type="password"
+                      id="passwordTB"
+                      placeholder="Password"
+                      required
+                    />             
+                    <input type="submit" value="Sign Up" />
+            </form>
+          </div>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-left">
+              <h1>Create Account</h1>
+              <h3>or</h3>
+              <button id="signInButton">Log In</button>
+            </div>
+            <div class="overlay-right">
+              <h1>Please, Log In</h1>
+              <h3>or</h3>
+              <button id="signUpButton">Create Account</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
-    <main>
-      <div id="signUp">
-        <form id="logInForm">
-          <h1>already got an account? log in</h1>
-          <table>
-            <tr>
-              <td>Email:</td>
-              <td>
-                <input
-                  type="text"
-                  id="email2TB"
-                  placeholder="Enter your e-mail"
-                  required
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Password:</td>
-              <td>
-                <input
-                  type="password"
-                  id="password2TB"
-                  placeholder="Enter your password"
-                  required
-                />
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <input type="submit" value="LOG IN" required />
-              </td>
-            </tr>
-          </table>
-        </form>
-        <form id="signUpForm">
-          <h1>new here? sign up</h1>
-          <table>
-            <tr>
-              <td>Name:</td>
-              <td>
-                <input
-                  type="text"
-                  id="nameTB"
-                  placeholder="Enter your name"
-                  required
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Email:</td>
-              <td>
-                <input
-                  type="text"
-                  id="emailTB"
-                  placeholder="Enter your e-mail"
-                  required
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Password:</td>
-              <td>
-                <input
-                  type="password"
-                  id="passwordTB"
-                  placeholder="Enter your password"
-                  required
-                />
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <input type="submit" value="SIGN UP" />
-              </td>
-            </tr>
-          </table>
-        </form>
-      </div>
-    </main>
+    </section>
     <script type="module" src="../Scripts/JoinedScript.js"></script>
     <script type="module" src="../Scripts/Script4.js"></script>
     <link href="../CSS/Style.css" rel="stylesheet" />
+  </section>
   </body>
 </html>

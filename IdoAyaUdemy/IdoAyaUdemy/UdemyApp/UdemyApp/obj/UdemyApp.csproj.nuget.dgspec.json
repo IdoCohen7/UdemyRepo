@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj": {}
+    "C:\\Users\\ayabr\\OneDrive\\שולחן העבודה\\udemy\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj": {
+    "C:\\Users\\ayabr\\OneDrive\\שולחן העבודה\\udemy\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj",
+        "projectUniqueName": "C:\\Users\\ayabr\\OneDrive\\שולחן העבודה\\udemy\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj",
         "projectName": "UdemyApp",
-        "projectPath": "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj",
-        "packagesPath": "C:\\Users\\idoco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\obj\\",
+        "projectPath": "C:\\Users\\ayabr\\OneDrive\\שולחן העבודה\\udemy\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\UdemyApp.csproj",
+        "packagesPath": "C:\\Users\\ayabr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ayabr\\OneDrive\\שולחן העבודה\\udemy\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\idoco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ayabr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -69,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     }

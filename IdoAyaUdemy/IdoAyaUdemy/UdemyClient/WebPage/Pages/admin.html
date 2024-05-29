@@ -2,6 +2,7 @@
   <head>
     <title>Udemy | Online Courses</title>
     <link rel="icon" href="../img/favicon.ico" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script
       src="https://code.jquery.com/jquery-3.7.1.js"
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
@@ -40,12 +41,12 @@
     </header>
     <main>
       <div id="adminFunc">
-        <button class="once-button" id="loadCoursesBttn">
-          Load all courses
-        </button>
-        <button class="once-button" id="createCourseBttn">
-          Create new course
-        </button>
+    <button class="once-button" id="loadCoursesBttn">
+      <i class="fas fa-download"></i> Load all courses
+    </button>        
+    <button class="once-button" id="createCourseBttn">
+      <i class="fas fa-plus"></i> Create new course
+    </button>
       </div>
       <div id="adminPage">
         <div id="newCourse"></div>
@@ -62,5 +63,5 @@
     <script type="module" src="../Scripts/JoinedScript.js"></script>
     <script type="module" src="../Scripts/adminScript.js"></script>
     <link href="../CSS/Style.css" rel="stylesheet" />
-  </body>
+  </body>
 </html>

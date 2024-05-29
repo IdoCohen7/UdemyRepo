@@ -1,6 +1,10 @@
 body {
   font-family: "CustomFont", sans-serif;
   margin-top: 0px;
+  color:#2d2f31;
+  font-size: 17px;
+  font-weight: 100;
+  text-align: center;
 }
 
 @font-face {
@@ -12,7 +16,7 @@ header {
   position: fixed; /* Fixed positioning */
   top: 0; /* Position at the top of the viewport */
   width: 100%; /* Full width */
-  height: 60px; /* Adjust height as needed */
+  height: 80px; /* Adjust height as needed */
   color: #2d2f31;
   display: flex;
   align-items: center;
@@ -34,7 +38,7 @@ header {
   border: none;
   background: none;
   cursor: pointer;
-  font-size: 18px; /* Adjusted font size */
+  font-size: 20px; /* Adjusted font size */
   font-weight: bold;
   margin: 20px; /* Adjusted margin to fit smaller height */
   padding: 5px 10px; /* Adjust padding to balance smaller height */
@@ -44,13 +48,11 @@ header {
 #loginStatus {
   font-family: "CustomFont", sans-serif;
   color: #a435f0;
-  background: #e7e7e7; /* Light grey background */
+  background: #2d2f31; /* Light grey background */
   font-size: 18px;
-  font-weight: bold;
   margin: 20px;
   padding: 5px 10px;
   text-align: center;
-  border-radius: 20px; /* Border radius to create an oval shape */
   padding-bottom: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -61,13 +63,12 @@ header {
 }
 
 header img {
-  height: 40px; /* Adjust logo size to fit within the smaller header */
-  padding-right: 20px;
+  height:90px; /* Adjust logo size to fit within the smaller header */
   padding-bottom: 10px;
 }
 main {
   overflow: auto;
-  margin-top: 60px;
+  margin-top: 70px;
 }
 
 hr {
@@ -84,7 +85,7 @@ hr {
   border-style: solid;
   border-color: #ccc;
   width: calc(100% / 3);
-  box-sizing: border-box;
+
 }
 
 #coursesTable img,
@@ -116,8 +117,6 @@ hr {
 .enroll-button,
 .once-button {
   font-family: "CustomFont", sans-serif;
-  font-weight: bold;
-  float: right;
   background-color: #a435f0;
   color: white;
   border: none;
@@ -127,7 +126,6 @@ hr {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 5px;
   margin-left: 50px;
 }
 
@@ -142,30 +140,31 @@ hr {
 }
 
 #courseNum {
+  background: #2d2f31; 
+  color: #ffffff;
+  font-size: 20px;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: row;
   text-align: center;
-  background: #e7e7e7; /* Light grey background */
-  border-radius: 20px; /* Border radius to create an oval shape */
-  color: #a435f0;
-  font-size: 30px;
-  margin: 20px;
-  padding: 10px 20px;
+  justify-content: center; /* כדי להבטיח שהטקסט יישאר במרכז */
 }
-
 .search,
-#signUpForm td,
-#logInForm td {
+ {
   display: flex;
   justify-content: space-between;
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: bold;
-  color: #a435f0;
+  color: #2d2f31;
   text-align: center;
 }
 
 .search {
   justify-content: space-evenly;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  text-align: center;
 }
 
 #cTable {
@@ -176,30 +175,30 @@ hr {
 }
 
 #adminTable {
-  display: block; /* Changed from flex to block */
+  display: flex; /* Changed from flex to block */
   margin: 20px auto;
 }
 
 #display,
 #adminFunc {
   display: flex;
+  margin: 20px auto;
   justify-content: center;
-  background: #e7e7e7; /* Light grey background */
-  border-radius: 20px; /* Border radius to create an oval shape */
+  background: #2d2f31; /* Light grey background */
 }
 
 #display > button,
 #adminFunc > button {
-  margin: 20px;
+  margin: 10px;
 }
 
 #adminTable tr {
   display: table-row; /* Ensure rows are displayed as table rows */
+  color: #fff;
 }
 
 #instructorsTable img {
-  border-radius: 7%;
-  border: 1.25px solid #2d2f31;
+  border-radius: 50%;
 }
 .course-title {
   font-size: 18px;
@@ -221,65 +220,27 @@ hr {
 }
 .search-button {
   font-family: "CustomFont", sans-serif;
-  font-weight: bold;
   background-color: #a435f0;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 17px;
   cursor: pointer;
-  border-radius: 5px;
   margin-top: 10px;
   margin: 10px;
+  justify-content: center; /* כדי להבטיח שהטקסט יישאר במרכז */
 }
 
 .search-button:hover {
   background-color: #2d2f31;
 }
 
-/* Container for both forms */
-#signUp {
-  display: flex; /* Use Flexbox to layout children horizontally */
-  justify-content: space-between; /* Add space between the forms */
-  gap: 20px; /* Alternatively, use gap for spacing (if supported) */
-  padding: 20px; /* Add some padding around the container */
-}
-
-/* Ensure the forms have some styling */
-#signUp form {
-  border: 1px solid #ccc; /* Add a border to each form */
-  padding: 20px; /* Add padding inside each form */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  background-color: #f9f9f9; /* Background color for forms */
-  width: 45%; /* Adjust width as needed */
-}
-
-/* Styling for table cells within forms */
-#signUp td {
-  padding: 10px; /* Add padding to table cells */
-}
-
-#signUp td input[type="submit"] {
-  display: block; /* Make submit button block level to take full width */
-  width: 100%; /* Full width of parent td */
-  background-color: #4caf50; /* Green background */
-  color: white; /* White text */
-  padding: 10px 0; /* Vertical padding */
-  border: none; /* Remove border */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 16px; /* Font size */
-}
-
-#signUp td input[type="submit"]:hover {
-  background-color: #45a049; /* Darker green on hover */
-}
-
 .edit-course-form {
   display: flex;
-  justify-content: center;
+  justify-content: right;
   width: 100%; /* Ensure it spans the entire width of the table row */
 }
 
@@ -295,12 +256,385 @@ hr {
 }
 
 #newCourse {
-  text-align: center;
-  margin: 0 auto;
-  width: 50%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  width: 50%; /* רוחב האלמנט */
+  padding: 0; /* אין מרווח בין התוכן לגבולות */
 }
+
 
 #newCourseTable {
   margin: 0 auto;
   width: 50%;
+}
+.carousel-item {
+  margin-top: 70px; /* מרווח של 50 פיקסלים מראש העמוד */
+  height: 400px;
+  background: #777;
+  color: #2d2f31;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.rating-wrap{
+	max-width: 480px;
+	margin: auto;
+	padding: 15px;
+	box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+	text-align: center;
+}
+
+.center{
+	width: 162px; 
+	margin: auto;
+}
+.carousel-item{
+  height: 32rem;
+  background-color: #777;
+  color: #2d2f31;
+  position: relative;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+section {
+  min-height: 95vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.199);
+  padding: 50px 30px;
+  border-radius: 10px;
+  min-width: 800px;
+  max-width: 1000px;
+  min-height: 500px;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6f5f7;
+  position: relative;
+  overflow: hidden;
+}
+
+.container .form {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  padding: 0 20px;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6f5f7;
+  transition: 0.7s ease-in-out transform;
+  overflow: hidden;
+}
+.container .form.sign-in-form {
+  left: 0;
+}
+.container .form.sign-up-form {
+  right: 0;
+}
+.container .form .wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.7s ease-in-out transform;
+}
+.container .form.sign-in-form .wrapper {
+  transform: translateX(100%);
+}
+.container .sign-in-form.active .wrapper {
+  transform: translateX(0);
+}
+.container .form.sign-up-form .wrapper {
+  transform: translateX(-100%);
+}
+.container .sign-up-form.active .wrapper {
+  transform: translateX(0);
+}
+.container .form h1 {
+  font-size: 40px;
+  font-weight: 300;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.container .form p {
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: capitalize;
+  line-height: 25px;
+  margin-bottom: 30px;
+}
+.container .form input {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  height: 35px;
+  font-size: 14px;
+  padding-left: 15px;
+  border: none;
+  background-color: rgba(199, 197, 197, 0.425);
+  outline: none;
+}
+.container .form input::placeholder {
+  color: rgba(0, 0, 0, 0.658);
+}
+.overlay-container .overlay button,
+.container .form button {
+  padding: 10px 50px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  background-color: rgba(#a435f0, 20, 60, 0.568);
+  cursor: pointer;
+  color: #f6f5f7;
+}
+.container .overlay-container {
+  position: absolute;
+  background-color: #a435f0;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.7s ease-in-out transform;
+}
+
+.container .overlay-container .overlay {
+  background-image: url(https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+  background-size: cover;
+  background-position: center center;
+  position: absolute;
+  left: 0%;
+  /* background-color: rebeccapurple; */
+  width: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: 0.7s ease-in-out transform;
+  z-index: 1;
+}
+.container .overlay::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: #a435f0;
+  z-index: -1;
+  opacity: 0.9;
+}
+.overlay-container .overlay .overlay-left,
+.overlay-container .overlay .overlay-right {
+  flex-basis: 50%;
+  text-align: center;
+}
+ד
+.overlay-container .overlay h1 {
+  font-family: "Montserrat";
+  font-size: 40px;
+  font-weight: 300;
+  color: white;
+}
+.overlay-container .overlay p {
+  color: white;
+  font-family: "Roboto";
+  font-size: 25px;
+  font-weight: 300;
+}
+.overlay-container .overlay button {
+  background-color: white;
+  color:#a435f0;
+  margin-top: 20px;
+}
+
+#newCourse {
+  color: #2d2f31;
+  text-align: center; /* מירוצה את התוכן למרכז */
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#newCourse h1 {
+  margin-bottom: 10px; /* מרווח מתחת לכותרת */
+}
+#newCourseTable {
+  margin: 0 auto; /* מרכז את הטבלה באמצע */
+  width: 50%; /* רוחב הטבלה */
+  border-collapse: collapse; /* מסתיר את הגבולות בין תאי הטבלה */
+  text-align: center;
+}
+
+#newCourseTable tr {
+  margin-bottom: 5px; /* מרווח בין השורות */
+}
+
+#newCourseTable td {
+  padding: 5px; /* מרווח בין התוכן לגבולות התאים */
+}
+#newCourseId,
+#newCourseTitle,
+#newCourseUrl,
+#newCourseImageRef,
+#newCourseInstructorId,
+#newCourseDuration {
+  border: 1px solid #ccc; /* הוספת גבול */
+  border-radius: 4px; /* הוספת פינות מעוגלות */
+  padding: 8px; /* הוספת מרווח בתוך ה-input */
+  width: 100%; /* קביעת רוחב ל-100% */
+  box-sizing: border-box; /* כלול את ה-padding וה-border בגודל הכללי של ה-input */
+  font-size: 16px; /* קביעת גודל פונט */
+  margin-bottom: 10px; /* הוספת מרווח בין ה-input לבין אלמנטים אחרים */
+}
+
+
+
+input[type="text"], input[type="submit"], button[type="submit"] {
+  margin: 4px 4px; /* מרווחים פנימיים */
+  box-sizing: border-box; /* כולל את הריווח בגודל האלמנט */
+  border: none; /* ללא גבול */
+  text-align: center; /* יישור טקסט לאמצע */
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  cursor: pointer;
+  margin-top: 30px;
+  justify-content: center; /* כדי להבטיח שהטקסט יישאר במרכז */
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  font-size: 2.5vmin;
+}
+
+.carousel-slider {
+  display: flex;
+  transition: 0.3s;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+}
+
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.carousel button {
+  font-size: inherit;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1em;
+  border: none;
+  cursor: pointer;
+}
+
+.carousel-prev {
+  left: 2em;
+}
+
+.carousel-next {
+  right: 2em;
+}
+
+.carousel-navigation {
+  position: absolute;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.carousel-bullet {
+  width: 1em;
+  height: 1em;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+#adminFunc {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+  align-items: center;
+  color:#ffffff;
+  font-size: 20px;
+}
+#browser {
+  height: 40px;
+  width: 500px;
+}
+label[for="browser"] {
+  margin-right: 20px;
+}
+
+#adminFunc button {
+  flex-grow: 1;
+  max-width: 200px; /* קבעתי מרווח מקסימלי */
+}
+
+#submitButton {
+  font-family: "CustomFont", sans-serif;
+  background-color: #a435f0;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+#editDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

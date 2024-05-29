@@ -1,65 +1,53 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Udemy | Online Courses</title>
     <link rel="icon" href="../img/favicon.ico" />
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.js"
-      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-      crossorigin="anonymous"
-    ></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
-      <img
-        src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
-        style="padding-left: 15px; padding-top: 15px; width: 80px"
-      />
-      <button class="header-button" onclick="window.location.href='index.html'">
-        Home
-      </button>
-      <button
-        class="header-button"
-        onclick="window.location.href='MyCourses.html'"
-      >
-        My Courses
-      </button>
-      <button
-        class="header-button"
-        onclick="window.location.href='instructorsPage.html'"
-      >
-        Instructors
-      </button>
-
+      <img src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" style="padding-left: 15px; padding-top: 15px; width: 80px" />
+      <button class="header-button" onclick="window.location.href='index.html'">Home</button>
+      <button class="header-button" onclick="window.location.href='MyCourses.html'">My Courses</button>
+      <button class="header-button" onclick="window.location.href='instructorsPage.html'">Instructors</button>
       <div id="profile">
-        <button
-          id="loginStatus"
-          onclick="window.location.href='SignUp.html'"
-          class="header-button"
-        ></button>
+        <button id="loginStatus" onclick="window.location.href='SignUp.html'" class="header-button"></button>
       </div>
     </header>
     <main>
+      <div class="carousel" role="group" aria-label="infinite loop carousel demo" "aria-roledescription"="carousel">
+        <div class="carousel-slider" id="slides" aria-atomic="false" aria-live="off">
+          <div class="carousel-slide" id="slide1" role="group" aria-label="1 of 2" aria-roledescription="slide">
+            <img src="../img/תמונה1.png" alt="Image 1">
+          </div>
+          <div class="carousel-slide" id="slide2" role="group" aria-label="2 of 2" aria-roledescription="slide">
+            <img src="../img/תמונה2.png" alt="Image 2">
+          </div>          
+        </div>
+      </div>
       <h1 id="courseNum" class=".oval-background"></h1>
       <div class="search">
         <div id="searchByDur">
-          <p>Search course by duration range:</p>
-          <input type="text" id="durStartBttn" />min duration
-          <input type="text" id="durEndBttn" />max duration
-          <br />
-          <button id="durBttn" class="search-button">search</button>
-        </div>
+            <p>Search course by duration</p>
+            <input type="text" id="durStartBttn" placeholder="Min" />
+            <input type="text" id="durEndBttn" placeholder="Max" />
+            <br />
+            <button id="durBttn" class="search-button"><i class="fas fa-clock"></i> Search</button>
+          </div>
         <div id="searchByRate">
-          <p>Search course by rating range:</p>
-          <input type="text" id="rateStartBttn" />min rating
-          <input type="text" id="rateEndBttn" />max rating
-          <br />
-          <button id="rateBttn" class="search-button">search</button>
-        </div>
-      </div>
+            <p>Search course by rating</p>
+            <input type="text" id="rateStartBttn" placeholder="Min" />
+            <input type="text" id="rateEndBttn" placeholder="Max" />
+            <br />
+            <button id="rateBttn" class="search-button"><i class="fas fa-star"></i> Search</button>
+          </div>
+    </div>
       <table id="aCoursesTable"></table>
     </main>
     <script type="module" src="../Scripts/JoinedScript.js"></script>
-    <script type="module" src="../Scripts/Script2.js"></script>
+    <script type="module" src="../Scripts/Script2.js"></script>    
     <link href="../CSS/Style.css" rel="stylesheet" />
   </body>
 </html>

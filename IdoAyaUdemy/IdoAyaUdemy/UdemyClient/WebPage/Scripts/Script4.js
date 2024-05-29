@@ -1,32 +1,43 @@
+const signIn = document.querySelector("#signInButton");
+const signUp = document.querySelector("#signUpButton");
+const signInForm = document.querySelector(".container .sign-in-form");
+const signUpForm = document.querySelector(".container .sign-up-form");
+const overlay_container = document.querySelector(".container .overlay-container");
+const overlay = document.querySelector(".container .overlay-container .overlay");
+
+signIn.addEventListener("click", () => {
+  overlay_container.style.transform = "translateX(100%)";
+  overlay.style.transform = "translateX(-50%)";
+  signInForm.classList.add("active");
+  signUpForm.classList.remove("active");
+});
+
+signUp.addEventListener("click", () => {
+  overlay_container.style.transform = "translateX(0)";
+  overlay.style.transform = "translateX(0)";
+  signUpForm.classList.add("active");
+  signInForm.classList.remove("active");
+});
+
 $(document).ready(function () {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordPattern = /^.{4,}$/;
 
   $("#logInForm").submit(function (event) {
-    if (
-      emailPattern.test($("#email2TB").val()) &&
-      passwordPattern.test($("#password2TB").val())
-    ) {
+    if (emailPattern.test($("#email2TB").val()) && passwordPattern.test($("#password2TB").val())) {
       event.preventDefault(); // Prevent default form submission
       Login($("#email2TB").val(), $("#password2TB").val());
     } else {
-      alert(
-        "ERROR: Password shorter than 4 characters or invalid email format"
-      );
+      alert("ERROR: Password shorter than 4 characters or invalid email format");
     }
   });
 
   $("#signUpForm").submit(function (event) {
-    if (
-      emailPattern.test($("#emailTB").val()) &&
-      passwordPattern.test($("#passwordTB").val())
-    ) {
+    if (emailPattern.test($("#emailTB").val()) && passwordPattern.test($("#passwordTB").val())) {
       event.preventDefault(); // Prevent default form submission
       SignUp($("#nameTB").val(), $("#emailTB").val(), $("#passwordTB").val());
     } else {
-      alert(
-        "ERROR: Password shorter than 4 characters or invalid email format"
-      );
+      alert("ERROR: Password shorter than 4 characters or invalid email format");
     }
   });
 });
@@ -46,13 +57,7 @@ function ajaxCall(method, api, data, successCB, errorCB) {
 
 function Login(email, password) {
   let api = "https://localhost:7061/api/Users/Login";
-  ajaxCall(
-    "GET",
-    api,
-    { email: email, password: password },
-    LoginSCB,
-    LoginECB
-  );
+  ajaxCall("GET", api, { email: email, password: password }, LoginSCB, LoginECB);
 }
 
 function LoginSCB(user) {
@@ -76,7 +81,6 @@ function LoginECB() {
 
 function SignUp(name, email, password) {
   let api = "https://localhost:7061/api/Users/register";
-
   let newUser = { name: name, email: email, password: password };
   ajaxCall("POST", api, JSON.stringify(newUser), SignUPSCB, SignUPECB);
 }

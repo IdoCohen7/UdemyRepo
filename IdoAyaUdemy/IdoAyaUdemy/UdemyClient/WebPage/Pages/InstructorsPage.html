@@ -2,6 +2,7 @@
   <head>
     <title>Udemy | Online Courses</title>
     <link rel="icon" href="../img/favicon.ico" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script
       src="https://code.jquery.com/jquery-3.7.1.js"
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
@@ -40,10 +41,13 @@
     </header>
     <main>
       <div id="display">
-        <button class="once-button" id="iLoadBttn">Load all instructors</button>
-        <button class="enroll-button" id="iShowBttn">
-          Show all instructors
-        </button>
+        <button class="once-button" id="iLoadBttn">
+          <i class="fas fa-download"></i> Load all instructors
+      </button> 
+      <button class="enroll-button" id="iShowBttn">
+        <i class="fas fa-address-card"></i> Show all instructors
+    </button>
+    
       </div>
       <table id="instructorsTable"></table>
     </main>
