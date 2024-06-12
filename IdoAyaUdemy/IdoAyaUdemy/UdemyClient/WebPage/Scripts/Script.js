@@ -49,9 +49,11 @@ function loadCoursesTable(coursesFromTable) {
 
     let insButton = document.createElement("button");
     insButton.classList.add("enroll-button");
+    insButton.classList.add("modalButton");
     insButton.textContent = "Show more courses of this instructor";
     insButton.addEventListener("click", function () {
       playSound("Add.mp3");
+      openModal(course.instructorId);
     });
 
     button.classList.add("enroll-button");
@@ -72,6 +74,46 @@ function loadCoursesTable(coursesFromTable) {
 
     table.appendChild(row);
   });
+}
+
+function openModal(id) {
+  // Create the modal structure dynamically
+  let modal = document.createElement("div");
+  modal.className = "modal";
+
+  let modalContent = document.createElement("div");
+  modalContent.className = "modal-content";
+
+  let closeButton = document.createElement("span");
+  closeButton.className = "close";
+  closeButton.innerHTML = "&times;";
+
+  let modalText = document.createElement("p");
+  modalText.textContent =
+    "More courses from the instructor whose id is " + id + ":";
+
+  // Append elements to their respective parents
+  modalContent.appendChild(closeButton);
+  modalContent.appendChild(modalText);
+  modal.appendChild(modalContent);
+  document.body.appendChild(modal);
+
+  // Display the modal
+  modal.style.display = "block";
+
+  // When the user clicks on <span> (x), close the modal
+  closeButton.onclick = function () {
+    modal.style.display = "none";
+    modal.remove(); // Remove the modal from the DOM
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      modal.remove(); // Remove the modal from the DOM
+    }
+  };
 }
 
 GetCoursesTable();
