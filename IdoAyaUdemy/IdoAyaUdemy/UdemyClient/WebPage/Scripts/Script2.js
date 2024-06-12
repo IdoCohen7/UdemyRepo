@@ -6,12 +6,11 @@ const elNew = (tag, prop) => Object.assign(document.createElement(tag), prop);
 
 // Helper functions:
 
-const mod = (n, m) => (n % m + m) % m;
+const mod = (n, m) => ((n % m) + m) % m;
 
 // Task: Carousel:
 
 const carousel = (elCarousel) => {
-
   const animation = 500;
   const pause = 5000;
   // Or use something like: const animation = Math.abs(elCarousel.dataset.carouselAnimation ?? 500);
@@ -33,10 +32,12 @@ const carousel = (elCarousel) => {
     elCarouselSlider.style.transitionDuration = `${ms}ms`;
     elCarouselSlider.style.transform = `translateX(${(-c - 1) * 100}%)`;
     // Handle active classes (slide and bullet)
-    elsSlides.forEach((elSlide, i) => elSlide.classList.toggle("is-active", cMod === i));
+    elsSlides.forEach((elSlide, i) =>
+      elSlide.classList.toggle("is-active", cMod === i)
+    );
     elsBtns.forEach((elBtn, i) => {
       elBtn.classList.toggle("is-active", cMod === i);
-      elBtn.setAttribute('aria-disabled', cMod === i);
+      elBtn.setAttribute("aria-disabled", cMod === i);
     });
   };
 
@@ -64,7 +65,7 @@ const carousel = (elCarousel) => {
 
   const stop = () => {
     clearInterval(itv);
- elCarouselSlider.setAttribute("aria-live", "polite");
+    elCarouselSlider.setAttribute("aria-live", "polite");
   };
 
   // Buttons:
@@ -77,7 +78,7 @@ const carousel = (elCarousel) => {
   });
   elPrev.setAttribute("aria-controls", "slides");
   elPrev.setAttribute("aria-label", "Previous slide");
-  
+
   const elNext = elNew("button", {
     type: "button",
     className: "carousel-next",
@@ -86,13 +87,12 @@ const carousel = (elCarousel) => {
   });
   elNext.setAttribute("aria-controls", "slides");
   elNext.setAttribute("aria-label", "Next slide");
-  
 
   // Navigation:
 
   const elNavigation = elNew("div", {
     className: "carousel-navigation",
-    role: "group"
+    role: "group",
   });
   elNavigation.setAttribute("aria-label", "Choose slide to display");
 
@@ -102,12 +102,11 @@ const carousel = (elCarousel) => {
     const elBtn = elNew("button", {
       type: "button",
       className: "carousel-bullet",
-      onclick: () => goto(i)
+      onclick: () => goto(i),
     });
-    elBtn.setAttribute("aria-labelledby", `slide${i+1}`)
+    elBtn.setAttribute("aria-labelledby", `slide${i + 1}`);
     elsBtns.push(elBtn);
   }
-
 
   // Events:
 
@@ -239,7 +238,7 @@ function loadPage() {
 }
 
 function RemoveCourse(id) {
-  let api = "https://localhost:7061/api/Courses/" + id;
+  let api = "https://localhost:7061/api/Courses" + id;
 
   ajaxCall("DELETE", api, null, DeleteCourseSCB, DeleteCourseECB);
   let table = document.getElementById("aCoursesTable");

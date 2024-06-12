@@ -29,6 +29,11 @@ namespace UdemyApp
             LastUpdate = lastUpdate;
         }
 
+        public Course()
+        {
+
+        }
+
         public int Id { get => id; set => id = value; }
         public string Title { get => title; set => title = value; }
         public string Url { get => url; set => url = value; }
@@ -59,7 +64,8 @@ namespace UdemyApp
 
         static public List<Course> Read()
         {
-            return coursesList;
+            DBservices dbs = new DBservices();
+            return dbs.ReadCourses();
         }
 
         static public List<Course> GetByDurationRange(double start, double end)

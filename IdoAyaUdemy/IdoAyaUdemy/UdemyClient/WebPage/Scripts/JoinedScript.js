@@ -11,6 +11,11 @@ function ajaxCall(method, api, data, successCB, errorCB) {
   });
 }
 
+function playSound(filename) {
+  const sound = new Audio(`../Sounds/${filename}`);
+  sound.play();
+}
+
 $(".once-button").click(function () {
   $(this).fadeOut("fast", function () {
     $(this).addClass("disabled-button");

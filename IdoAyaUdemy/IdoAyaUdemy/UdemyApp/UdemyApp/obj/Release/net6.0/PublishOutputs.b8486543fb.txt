@@ -1,0 +1,11 @@
+C:\Users\idoco\OneDrive\מסמכים\GitHub\UdemyRepo\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\PubTmp\Out\UdemyApp.exe
+C:\Users\idoco\OneDrive\מסמכים\GitHub\UdemyRepo\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\UdemyRepo\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\UdemyRepo\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\PubTmp\Out\UdemyApp.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\UdemyRepo\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\PubTmp\Out\UdemyApp.deps.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\UdemyRepo\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\PubTmp\Out\UdemyApp.runtimeconfig.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\UdemyRepo\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\PubTmp\Out\UdemyApp.pdb
+C:\Users\idoco\OneDrive\מסמכים\GitHub\UdemyRepo\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\UdemyRepo\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\UdemyRepo\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\UdemyRepo\IdoAyaUdemy\IdoAyaUdemy\UdemyApp\UdemyApp\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
