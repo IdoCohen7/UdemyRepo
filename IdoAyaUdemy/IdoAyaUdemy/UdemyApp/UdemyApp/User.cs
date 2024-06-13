@@ -74,5 +74,25 @@ namespace UdemyApp
         {
             return usersList;
         }
+
+        public static int insertCourse(int userId, int courseId)
+        {
+            DBservices dbs = new DBservices();
+            return dbs.InsertCourse(userId, courseId);
+        }
+
+        public static List<Course> readUsersCourses(int userId)
+        {
+            DBservices dbs = new DBservices();
+            return dbs.ReadCourses(userId); 
+        }
+
+        public static int RemoveCourse(int userId, int courseId)
+        {
+            DBservices db = new DBservices();
+            return db.RemoveCourse(userId, courseId);
+        }
+
+        
     }
 }

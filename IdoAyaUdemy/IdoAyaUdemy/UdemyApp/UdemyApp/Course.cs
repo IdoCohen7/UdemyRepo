@@ -99,5 +99,17 @@ namespace UdemyApp
             coursesList.Remove(this);
         }
 
+        public static List<Course> GetCoursesByDuration(int userId, float min, float max)
+        {
+            DBservices dbs = new DBservices();
+            return dbs.ReadCoursesByDuration(userId, min, max);
+        }
+
+        public static List<Course> GetCoursesByRating(int userId, float min, float max)
+        {
+            DBservices dbs = new DBservices();
+            return dbs.ReadCoursesByRating(userId, min, max);
+        }
+
     }
 }

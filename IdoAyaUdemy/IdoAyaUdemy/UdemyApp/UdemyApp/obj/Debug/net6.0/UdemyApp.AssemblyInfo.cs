@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UdemyApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dce2d1ac15eabdafa69ccde213d55e2baf14e28f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c1341d727431313ec2acf19f829890c210bd48c")]
 [assembly: System.Reflection.AssemblyProductAttribute("UdemyApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UdemyApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

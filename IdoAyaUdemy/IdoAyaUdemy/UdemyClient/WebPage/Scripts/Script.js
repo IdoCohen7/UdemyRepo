@@ -1,5 +1,4 @@
 // Assuming `user` variable is already declared in JoinedScript.js
-
 function GetCoursesTable() {
   let api = "https://localhost:7061/api/Courses";
   ajaxCall("GET", api, null, loadCoursesTable, GetCoursesTableECB);
@@ -59,7 +58,7 @@ function loadCoursesTable(coursesFromTable) {
     button.classList.add("enroll-button");
 
     // Set the value of the button to hold the index of the course in the courses array
-    button.value = index;
+    button.value = course.id;
     button.addEventListener("click", function () {
       playSound("Add.mp3");
       PostToServer(button.value);
@@ -119,43 +118,26 @@ function openModal(id) {
 GetCoursesTable();
 
 function PostCoursesSCB(status) {
-  if (status == true) {
-    alert("course added to the list!");
+  if (status == 1) {
+    alert("Course added successfuly!");
   } else {
-    alert("error: course has already been added to the list");
+    alert("ERROR: Course already in your list");
   }
 }
 
 function PostCoursesECB(err) {
-  alert("error");
+  alert("Error");
 }
 
-function PostToServer(index) {
+function PostToServer(id) {
   if (user != null) {
-    let api = "https://localhost:7061/api/Courses";
+    let api =
+      "https://localhost:7061/api/Users/InsertCourse?userId=" +
+      user.id +
+      "&courseId=" +
+      id;
 
-    let durationSplit = courses[index].duration.split(" ");
-    let durationDoubleValue = parseFloat(durationSplit[0]);
-
-    let addedCourse = {
-      Id: courses[index].id,
-      Title: courses[index].title,
-      Url: courses[index].url,
-      Rating: courses[index].rating,
-      NumOfReviews: courses[index].num_reviews,
-      InstructorId: courses[index].instructors_id,
-      ImageRef: courses[index].image,
-      Duration: durationDoubleValue,
-      LastUpdate: courses[index].last_update_date,
-    };
-
-    ajaxCall(
-      "POST",
-      api,
-      JSON.stringify(addedCourse),
-      PostCoursesSCB,
-      PostCoursesECB
-    );
+    ajaxCall("POST", api, null, PostCoursesSCB, PostCoursesECB);
   } else {
     if (
       confirm(

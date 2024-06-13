@@ -106,16 +106,16 @@ namespace UdemyApp.Controllers
 
         [HttpGet("getByDurationRange")]
 
-        public IEnumerable<Course> GetByDurationRange(double start, double end)
+        public IEnumerable<Course> GetByDurationRange(int id, float start, float end)
         {
-            return Course.GetByDurationRange(start, end);
+            return Course.GetCoursesByDuration(id, start, end);
         }
 
-        [HttpGet("getByRatingRange/start/{start}/end/{end}")]
+        [HttpGet("getByRatingRange/id/{id}/start/{start}/end/{end}")]
 
-        public IEnumerable<Course> GetByRatingRange(double start, double end)
+        public IEnumerable<Course> GetByRatingRange(int id, float start, float end)
         {
-            return Course.GetByRatingRange(start, end);
+            return Course.GetCoursesByRating(id, start, end);
         }
 
 

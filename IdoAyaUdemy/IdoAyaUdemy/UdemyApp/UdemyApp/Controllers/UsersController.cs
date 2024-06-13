@@ -14,6 +14,18 @@ namespace UdemyApp.Controllers
             return UdemyApp.User.Read();
         }
 
+        [HttpGet("{id}")]
+        public IEnumerable<Course> GetCourses(int id)
+        {
+            return UdemyApp.User.readUsersCourses(id);
+        }
+
+        [HttpDelete("uId/{userId}/cId/{courseId}")]
+        public int Delete(int userId, int courseId)
+        {
+            return UdemyApp.User.RemoveCourse(userId, courseId);
+        }
+
         // GET api/<UsersController>/5
         [HttpGet("Login")]
         public User Get(string email, string password)
@@ -32,6 +44,12 @@ namespace UdemyApp.Controllers
 
             User newUser = new User(user.Name, user.Email, user.Password);
             return newUser.Register();
+        }
+
+        [HttpPost("InsertCourse")]
+        public int Post(int userId, int courseId)
+        {
+            return UdemyApp.User.insertCourse(userId, courseId);
         }
 
         // PUT api/<UsersController>/5

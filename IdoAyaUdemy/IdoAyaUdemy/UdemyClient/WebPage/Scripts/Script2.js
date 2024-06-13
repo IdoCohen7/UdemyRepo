@@ -144,18 +144,6 @@ const carousel = (elCarousel) => {
 
 // Allows to use multiple carousels on the same page:
 els(".carousel").forEach(carousel);
-function ajaxCall(method, api, data, successCB, errorCB) {
-  $.ajax({
-    type: method,
-    url: api,
-    data: data,
-    cache: false,
-    contentType: "application/json",
-    dataType: "json",
-    success: successCB,
-    error: errorCB,
-  });
-}
 
 function GetCoursesSCB(coursesList) {
   let table = document.getElementById("aCoursesTable");
@@ -216,8 +204,16 @@ function GetCoursesECB(err) {
 }
 
 function GetFromServer() {
-  let api = "https://localhost:7061/api/Courses";
-  setTimeout(ajaxCall("GET", api, "", GetCoursesSCB, GetCoursesECB), 9000000);
+  if (user != null) {
+    let api = "https://localhost:7061/api/Users/" + user.id;
+    setTimeout(
+      ajaxCall("GET", api, null, GetCoursesSCB, GetCoursesECB),
+      9000000
+    );
+  } else {
+    let cHeader = document.getElementById("courseNum");
+    cHeader.innerHTML = "LOG IN TO START ADDING COURSES TO YOUR LIST";
+  }
 }
 
 function loadPage() {
@@ -238,20 +234,16 @@ function loadPage() {
 }
 
 function RemoveCourse(id) {
-  let api = "https://localhost:7061/api/Courses" + id;
+  let api = "https://localhost:7061/api/Users/uId/" + user.id + "/cId/" + id;
 
   ajaxCall("DELETE", api, null, DeleteCourseSCB, DeleteCourseECB);
-  let table = document.getElementById("aCoursesTable");
-  table.innerHTML = "";
-  GetFromServer();
+  location.reload();
 }
 
-function DeleteCourseSCB(message) {
-  console.log(message);
-}
+function DeleteCourseSCB(code) {}
 
-function DeleteCourseECB(message) {
-  console.log(message);
+function DeleteCourseECB(ERROR) {
+  console.log("ERROR: " + ERROR);
 }
 
 function searchByDuration(start, end) {
@@ -259,7 +251,7 @@ function searchByDuration(start, end) {
   ajaxCall(
     "GET",
     api,
-    { start: start, end: end },
+    { id: user.id, start: start, end: end },
     GetCoursesSCB,
     GetCoursesECB
   );
@@ -267,8 +259,9 @@ function searchByDuration(start, end) {
 
 function searchByRating(start, end) {
   let api =
-    "https://localhost:7061/api/Courses/" +
-    "getByRatingRange/start/" +
+    "https://localhost:7061/api/Courses/getByRatingRange/id/" +
+    user.id +
+    "/start/" +
     start +
     "/end/" +
     end;
