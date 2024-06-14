@@ -4,11 +4,18 @@
   "Documents": [
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|c:\\users\\idoco\\onedrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\github\\udemyrepo\\idoayaudemy\\idoayaudemy\\udemyapp\\udemyapp\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|solutionrelative:udemyapp\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
 =======
+=======
+>>>>>>> Stashed changes
       "AbsoluteMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|c:\\users\\idoco\\onedrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\github\\udemyrepo\\idoayaudemy\\idoayaudemy\\udemyapp\\udemyapp\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|solutionrelative:udemyapp\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|c:\\users\\idoco\\onedrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\github\\udemyrepo\\idoayaudemy\\idoayaudemy\\udemyapp\\udemyapp\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|solutionrelative:udemyapp\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E9C082A1-38E9-4428-96D4-B5DE52BDAA0E}|UdemyApp\\UdemyApp.csproj|c:\\users\\idoco\\onedrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\github\\udemyrepo\\idoayaudemy\\idoayaudemy\\udemyapp\\udemyapp\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -81,7 +88,11 @@
         {
           "DockedWidth": 200,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           "SelectedChildIndex": 7,
+=======
+          "SelectedChildIndex": 1,
+>>>>>>> Stashed changes
           "Children": [
             {
               "$type": "Document",
@@ -113,7 +124,11 @@
               "RelativeDocumentMoniker": "UdemyApp\\Controllers\\CoursesController.cs",
               "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Controllers\\CoursesController.cs",
               "RelativeToolTip": "UdemyApp\\Controllers\\CoursesController.cs",
+<<<<<<< Updated upstream
               "ViewState": "AQIAAGEAAAAAAAAAAAAewFoAAAANAAAA",
+=======
+              "ViewState": "AQIAAGYAAAAAAAAAAAAjwHEAAABCAAAA",
+>>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-02T13:10:47.218Z"
             },
@@ -134,6 +149,7 @@
               "ViewState": "AQIAAD8AAAAAAAAAAAAYwEwAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-11T13:18:41.28Z"
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             },
             {
@@ -218,6 +234,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
+=======
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+>>>>>>> Stashed changes
               "Title": "Course.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\UdemyRepo\\IdoAyaUdemy\\IdoAyaUdemy\\UdemyApp\\UdemyApp\\Course.cs",
               "RelativeDocumentMoniker": "UdemyApp\\Course.cs",
@@ -322,6 +344,9 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-06-11T13:11:33.126Z"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
