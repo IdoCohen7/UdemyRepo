@@ -276,4 +276,5 @@ function searchByRating(start, end) {
   ajaxCall("GET", api, null, GetCoursesSCB, GetCoursesECB);
 }
 
+/*commit*/
 loadPage();
