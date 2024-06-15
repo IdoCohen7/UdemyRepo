@@ -102,6 +102,49 @@ public class DBservices
         }
     }
 
+    public List<Instructor> ReadInstructors()
+    {
+        SqlConnection con = null;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+            cmd = CreateCommandWithStoredProcedureReadCourses("SP_ReadInstructors", con); // create the command
+
+            List<Instructor> instructors = new List<Instructor>();
+
+            SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            while (dataReader.Read())
+            {
+                Instructor i = new Instructor();
+
+                i.Id = Convert.ToInt32(dataReader["id"]);
+                i.Title = dataReader["title"].ToString();
+                i.Name = dataReader["name"].ToString();
+                i.Image = dataReader["image"].ToString();
+                i.JobTitle = dataReader["job_title"].ToString();
+                instructors.Add(i);
+            }
+
+            return instructors;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+    }
+
     private SqlCommand CreateCommandWithStoredProcedure_InsertToUserCourse(String spName, SqlConnection con, int userId, int courseId)
     {
 

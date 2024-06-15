@@ -19,6 +19,8 @@
             JobTitle = jobTitle;
         }
 
+        public Instructor() { }
+
         public int Id { get => id; set => id = value; }
         public string Title { get => title; set => title = value; }
         public string Name { get => name; set => name = value; }
@@ -40,7 +42,8 @@
 
         static public List<Instructor> Read()
         {
-            return instructorsList;
+            DBservices dbs = new DBservices();
+            return dbs.ReadInstructors();
         }
     }
 }
