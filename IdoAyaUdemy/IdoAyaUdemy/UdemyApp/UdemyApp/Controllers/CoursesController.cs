@@ -21,60 +21,28 @@ namespace UdemyApp.Controllers
         [HttpGet("{id}")]
         public Course Get(int id)
         {
-            for (int i=0; i<Course.Read().Count; i++)
-            {
-                if (Course.Read()[i].Id == id)
-                {
-                    return Course.Read()[i];
-                }
-            }
-            return null;
+            DBservices dbs = new DBservices();
+            return dbs.GetCourse(id);
         }
 
         // POST api/<CoursesController>
         [HttpPost]
-        public bool Post([FromBody] Course course)
+        public int Post([FromBody] Course course)
         {
-            return course.Insert();
+            DBservices dBservices = new DBservices();
+            Course newCourse = new Course(course.Title, course.Url, 0, 0, course.InstructorId, course.ImageRef, course.Duration);
+            return dBservices.CreateCourse(newCourse);
         }
 
-        // POST api/<CoursesController>/Create
-        [HttpPost("Create")]
-        public bool Create([FromBody] Course course)
-        {
-            
-            Course newCourse = new Course(
-                id: course.Id, 
-                title: course.Title,
-                url: course.Url,
-                rating: 0,
-                numOfReviews: 0,
-                instructorId: course.InstructorId,
-                imageRef: course.ImageRef,
-                duration: course.Duration,
-                lastUpdate: DateTime.Now.ToString("dd/MM/yyyy")
-            );
-
-            
-            return newCourse.Insert();
-        }
 
         // PUT api/<CoursesController>/5
-        [HttpPut("{id}")]
-        public bool Put(int id, [FromBody] Course updatedValue)
+        [HttpPut()]
+        public bool Put([FromBody] Course updatedValue)
             {
-            Course editedCourse = Get(id);
-            Console.WriteLine(editedCourse);
-            if (editedCourse != null)
+            if (updatedValue != null)
             {
-                editedCourse.Title = updatedValue.Title;
-                editedCourse.Url = updatedValue.Url;
-                editedCourse.Duration = updatedValue.Duration;
-                if (updatedValue.ImageRef!= string.Empty)
-                {
-                    editedCourse.ImageRef = updatedValue.ImageRef;
-                }
-                editedCourse.LastUpdate = DateTime.Now.ToString("dd/MM/yyyy");
+                DBservices dbs = new DBservices();
+                dbs.EditCourse(updatedValue);
                 return true;
 
             }
@@ -85,23 +53,7 @@ namespace UdemyApp.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-           bool success = false;
-           Course toDelete = null;
-           foreach (Course course in Course.Read())
-            {
-                if (course.Id == id) { 
-                    toDelete = course;
-                }
-            }
-           if (toDelete != null)
-            {
-                toDelete.Delete();
-                success = true;
-            }
-           if (!success)
-            {
-                
-            }
+      
         }
 
         [HttpGet("getByDurationRange")]

@@ -1,65 +1,9 @@
-import courses from "../Data/Course.json" with { type: "json" };
-
-function ajaxCall(method, api, data, successCB, errorCB) {
-    $.ajax({
-      type: method,
-      url: api,
-      data: data,
-      cache: false,
-      contentType: "application/json",
-      dataType: "json",
-      success: successCB,
-      error: errorCB,
-    });
-  }
-
-$(document).ready(function() {
-  ShowAllCourses();
-})
-
-$("#loadCoursesBttn").click(function () {
-    let api = 'https://localhost:7061/api/Courses';
-    var tbody = $('#cTable tbody');
-
-    courses.forEach(course => {
-
-        let durationSplit = course.duration.split(" ");
-      let durationDoubleValue = parseFloat(durationSplit[0]);
-
-        let addedCourse = {
-            Id: course.id,
-            Title: course.title,
-            Url: course.url,
-            Rating: course.rating,
-            NumOfReviews: course.num_reviews,
-            InstructorId: course.instructors_id,
-            ImageRef: course.image,
-            Duration: durationDoubleValue,
-            LastUpdate: course.last_update_date
-          }
-
-        setTimeout(ajaxCall("POST", api, JSON.stringify(addedCourse), PostCourseToServerSCB, PostCourseToServerECB), 3000000);
-        $("#loadCoursesBttn").prop("disabled", true);
-
-    });
-
-    ShowAllCourses();
-}
-);
-
-function PostCourseToServerSCB(message) {
-    console.log(message);
-}
-
-function PostCourseToServerECB(message) {
-    console.log(message);
-}
-
 function ShowAllCourses() {
   let api = "https://localhost:7061/api/Courses";
   setTimeout(ajaxCall("GET", api, "", GetCoursesSCB, GetCoursesECB), 12000000);
 }
 
+ShowAllCourses();
 
 function GetCoursesECB() {
   alert("Unable to render courses");
@@ -67,14 +11,15 @@ function GetCoursesECB() {
 
 function GetCoursesSCB(coursesList) {
   let coursesDL = document.getElementById("browsers");
-  coursesDL.innerHTML = '';  // Clear existing options
+  coursesDL.innerHTML = ""; // Clear existing options
   for (let i = 0; i < coursesList.length; i++) {
     let option = document.createElement("option");
     option.value = coursesList[i].title;
-    option.setAttribute("data-id", coursesList[i].id);  // Add the data-id attribute
+    option.setAttribute("data-id", coursesList[i].id); // Add the data-id attribute
     coursesDL.appendChild(option);
   }
 }
+
 $("#createCourseBttn").click(function () {
   let newForm = document.createElement("form");
   newForm.id = "createCourseForm";
@@ -83,29 +28,37 @@ $("#createCourseBttn").click(function () {
   table.id = "newCourseTable";
 
   let newCourse = {
-    Id: "",
-    Title: "",
-    Url: "",
+    title: "",
+    url: "",
     Rating: 0,
     NumOfReviews: 0,
     InstructorId: 1,
     ImageRef: "",
     Duration: 1,
-    LastUpdate: ""
+    LastUpdate: "",
   };
 
   for (const key in newCourse) {
-    if (newCourse.hasOwnProperty(key) && !(newCourse[key] === 0) && key != "LastUpdate") {
+    if (
+      newCourse.hasOwnProperty(key) &&
+      !(newCourse[key] === 0) &&
+      key != "LastUpdate" &&
+      key != "Id"
+    ) {
       let newInput = document.createElement("input");
       newInput.type = "text";
+
       newInput.required = true;
+      if (key == "ImageRef") {
+        newInput.required = false;
+      }
       newInput.id = "newCourse" + key;
 
       let newRow = document.createElement("tr");
       let newCell = document.createElement("td");
       let newP = document.createElement("p");
       newP.innerHTML = key;
-      
+
       newCell.appendChild(newP);
       newCell.appendChild(newInput);
       newRow.appendChild(newCell);
@@ -113,17 +66,51 @@ $("#createCourseBttn").click(function () {
     }
   }
 
+  // Image Preview
+  let imagePreviewTR = document.createElement("tr");
+  let imagePreviewTD = document.createElement("td");
+  imagePreviewTD.innerHTML = "Image Preview:";
+  let imagePreviewValTD = document.createElement("td");
+  let imagePreview = document.createElement("img");
+  imagePreview.id = "newCourseImagePreview";
+  imagePreview.style.maxWidth = "200px"; // Set a max-width for the preview
+  imagePreviewValTD.appendChild(imagePreview);
+  imagePreviewTR.appendChild(imagePreviewTD);
+  imagePreviewTR.appendChild(imagePreviewValTD);
+  table.appendChild(imagePreviewTR);
+
+  // File upload for image
+  let imageUploadTR = document.createElement("tr");
+  let imageUploadTD = document.createElement("td");
+  imageUploadTD.innerHTML = "Upload Image:";
+  let imageUploadValTD = document.createElement("td");
+  let fileInput = document.createElement("input");
+  fileInput.type = "file";
+  fileInput.id = "newCourseFiles";
+  fileInput.accept = "image/*"; // Accept only image files
+  fileInput.addEventListener("change", function () {
+    let reader = new FileReader();
+    reader.onload = function (e) {
+      imagePreview.src = e.target.result;
+    };
+    reader.readAsDataURL(this.files[0]);
+  });
+  imageUploadValTD.appendChild(fileInput);
+  imageUploadTR.appendChild(imageUploadTD);
+  imageUploadTR.appendChild(imageUploadValTD);
+  table.appendChild(imageUploadTR);
+
   let submitBttn = document.createElement("input");
   submitBttn.type = "submit";
-  submitBttn.value = "SUBMIT"; 
+  submitBttn.value = "SUBMIT";
   submitBttn.dataset.false = "false";
 
   let headline = document.createElement("h1");
   headline.innerHTML = "Enter the course's details:";
-  
+
   newForm.appendChild(table);
   newForm.appendChild(submitBttn);
-  
+
   let theDiv = document.getElementById("newCourse");
   theDiv.innerHTML = ""; // Clear previous content
   theDiv.appendChild(headline);
@@ -137,49 +124,103 @@ $("#createCourseBttn").click(function () {
 });
 
 function createCourse() {
-  let api = "https://localhost:7061/api/Instructors/" + $("#newCourseInstructorId").val();
+  let api =
+    "https://localhost:7061/api/Instructors/" +
+    $("#newCourseInstructorId").val();
   ajaxCall("GET", api, null, secondCreateCourse, getInstructorECB);
-
 }
 
 function secondCreateCourse(instructor) {
+  if (instructor != null) {
+    let api = "https://localhost:7061/api/Courses";
+    let uploadApi = "https://localhost:7061/api/Upload";
+    let imageFolder = "https://localhost:7061/images/";
 
+    let newCourse = {
+      Title: $("#newCoursetitle").val(),
+      Url: $("#newCourseurl").val(),
+      Duration: parseFloat($("#newCourseDuration").val()),
+      InstructorId: parseInt($("#newCourseInstructorId").val()),
+      ImageRef: "none", // Default image value
+      LastUpdate: " ",
+    };
 
-  if (instructor!=null) {
-    let api = "https://localhost:7061/api/Courses/Create";
+    var data = new FormData();
+    var files = $("#newCourseFiles").get(0).files;
 
-  let newCourse = {
-    Id: parseInt($("#newCourseId").val()),
-    Title: $("#newCourseTitle").val(),
-    Url: $("#newCourseUrl").val(),
-    Rating: 0,
-    NumOfReviews: 0,
-    InstructorId: parseInt($("#newCourseInstructorId").val()),
-    ImageRef: $("#newCourseImageRef").val(),
-    Duration: parseFloat($("#newCourseDuration").val()),
-    LastUpdate: ""
-  };
+    if (files.length > 0) {
+      // Only one file is allowed
+      var file = files[0];
+      data.append("files", file);
 
-  ajaxCall("POST", api, JSON.stringify(newCourse), createCourseSCB, createCourseECB);
+      console.log("Starting image upload...");
+      console.log("File selected:", file);
 
+      $.ajax({
+        type: "POST",
+        url: uploadApi,
+        contentType: false,
+        processData: false,
+        data: data,
+        success: function (data) {
+          console.log("Upload successful, data:", data);
+          // Set the image reference input with the uploaded image path
+          if (Array.isArray(data) && data.length > 0) {
+            newCourse.ImageRef = imageFolder + data[0];
+          } else if (typeof data === "string") {
+            newCourse.ImageRef = imageFolder + data;
+          }
+          console.log(
+            "Image URL set to newCourse.ImageRef:",
+            newCourse.ImageRef
+          );
+          // Once image upload is successful, create the course
+          ajaxCall(
+            "POST",
+            api,
+            JSON.stringify(newCourse),
+            createCourseSCB,
+            createCourseECB
+          );
+        },
+        error: function (error) {
+          console.log("Error uploading image:", error);
+          // If image upload fails, create the course with default image
+          ajaxCall(
+            "POST",
+            api,
+            JSON.stringify(newCourse),
+            createCourseSCB,
+            createCourseECB
+          );
+        },
+      });
+    } else {
+      // No file selected, create the course with default image
+      ajaxCall(
+        "POST",
+        api,
+        JSON.stringify(newCourse),
+        createCourseSCB,
+        createCourseECB
+      );
+    }
+  } else {
+    alert(
+      "ERROR: No instructor matches that ID, make sure to load instructors"
+    );
   }
-
-  else {
-    alert("ERROR:no instructor matches that ID, make sure to load instructors");
-  }
-
-  
 }
 
 function getInstructorECB(error) {
-  alert("ERROR: No instructor matches this Id");
+  alert("ERROR: No instructor matches this ID");
 }
 
 function createCourseSCB(response) {
   if (response) {
-      alert("Course created successfully");
+    alert("Course created successfully");
   } else {
-      alert("Course creation failed: duplicate title or ID");
+    alert("Course creation failed: duplicate title or ID");
   }
 }
 
@@ -187,22 +228,22 @@ function createCourseECB(jqXHR) {
   alert(`Failed to create course: ${jqXHR.responseText}`);
 }
 
-$(document).ready(function() {
-  $('#submitButton').on('click', function() {
-      var inputVal = $('#browser').val();
-      var selectedOption = $("#browsers option[value='" + inputVal + "']");
-      var additionalData = selectedOption.data('id');
+$(document).ready(function () {
+  $("#submitButton").on("click", function () {
+    var inputVal = $("#browser").val();
+    var selectedOption = $("#browsers option[value='" + inputVal + "']");
+    var additionalData = selectedOption.data("id");
 
-      if (additionalData !== undefined) {
-          console.log('User input:', inputVal);
-          console.log('Additional data (course ID):', additionalData);
-      } else {
-          console.log('No additional data for:', inputVal);
-      }
+    if (additionalData !== undefined) {
+      console.log("User input:", inputVal);
+      console.log("Additional data (course ID):", additionalData);
+    } else {
+      console.log("No additional data for:", inputVal);
+    }
 
-      let api = "https://localhost:7061/api/Courses/" + additionalData;
+    let api = "https://localhost:7061/api/Courses/" + additionalData;
 
-      ajaxCall("GET", api, null, GetCourseEditSCB, GetCourseEditECB );
+    ajaxCall("GET", api, null, GetCourseEditSCB, GetCourseEditECB);
   });
 });
 
@@ -251,7 +292,7 @@ function GetCourseEditSCB(course) {
   let urlValTD = document.createElement("td");
   let urlInput = document.createElement("input");
   urlInput.type = "text";
-  urlInput.required = true; 
+  urlInput.required = true;
   urlInput.value = course.url;
   urlInput.id = "editUrlTB";
   urlValTD.appendChild(urlInput);
@@ -273,6 +314,40 @@ function GetCourseEditSCB(course) {
   imageRefTR.appendChild(imageRefValTD);
   editTable.appendChild(imageRefTR);
 
+  // Image Preview
+  let imagePreviewTR = document.createElement("tr");
+  let imagePreviewTD = document.createElement("td");
+  imagePreviewTD.innerHTML = "Image Preview:";
+  let imagePreviewValTD = document.createElement("td");
+  let imagePreview = document.createElement("img");
+  imagePreview.id = "editCourseImagePreview";
+  imagePreview.src = course.imageRef;
+  imagePreview.style.maxWidth = "200px"; // Set a max-width for the preview
+  imagePreviewValTD.appendChild(imagePreview);
+  imagePreviewTR.appendChild(imagePreviewTD);
+  imagePreviewTR.appendChild(imagePreviewValTD);
+  editTable.appendChild(imagePreviewTR);
+
+  // File upload for image
+  let imageUploadTR = document.createElement("tr");
+  let imageUploadTD = document.createElement("td");
+  imageUploadTD.innerHTML = "Upload Image:";
+  let imageUploadValTD = document.createElement("td");
+  let fileInput = document.createElement("input");
+  fileInput.type = "file";
+  fileInput.id = "editCourseFiles";
+  fileInput.accept = "image/*"; // Accept only image files
+  fileInput.addEventListener("change", function () {
+    let reader = new FileReader();
+    reader.onload = function (e) {
+      imagePreview.src = e.target.result;
+    };
+    reader.readAsDataURL(this.files[0]);
+  });
+  imageUploadValTD.appendChild(fileInput);
+  imageUploadTR.appendChild(imageUploadTD);
+  imageUploadTR.appendChild(imageUploadValTD);
+  editTable.appendChild(imageUploadTR);
 
   let submitButton = document.createElement("button");
   submitButton.type = "submit";
@@ -284,43 +359,100 @@ function GetCourseEditSCB(course) {
 
   div.appendChild(editForm);
 
-  $("#editForm").submit(function() {
-      EditCourse(course);
-      return false;
+  $("#editForm").submit(function (event) {
+    event.preventDefault();
+    EditCourse(course);
+    return false;
   });
 }
 
-function EditCourse(course) {
-  let api = "https://localhost:7061/api/Courses/" + course.id;
-
-  let editedCourse = {
-      Id: course.id, 
-      Title: $("#editTitleTB").val(),
-      Url: $("#editUrlTB").val(),
-      Rating: 0,
-      NumOfReviews: 0,
-      InstructorId: course.instructorId, 
-      ImageRef: $("#editImageRefTB").val(),
-      Duration: parseFloat($("#editDurationTB").val()), 
-      LastUpdate: "" // updated in the server
-  };
-
-  console.log(editedCourse);
-
-  ajaxCall("PUT", api, JSON.stringify(editedCourse), EditCourseSCB, EditCourseECB);
+function GetCourseEditECB(error) {
+  alert(error);
 }
 
+function EditCourse(course) {
+  let api = "https://localhost:7061/api/Courses/";
+  let uploadApi = "https://localhost:7061/api/Upload";
+  let imageFolder = "https://localhost:7061/images/";
+
+  let editedCourse = {
+    Id: course.id,
+    Title: $("#editTitleTB").val(),
+    Url: $("#editUrlTB").val(),
+    Rating: 0,
+    NumOfReviews: 0,
+    InstructorId: course.instructorId,
+    ImageRef: $("#editImageRefTB").val(),
+    Duration: parseFloat($("#editDurationTB").val()),
+    LastUpdate: "", // updated in the server
+  };
+
+  var data = new FormData();
+  var files = $("#editCourseFiles").get(0).files;
+
+  if (files.length > 0) {
+    // Only one file is allowed
+    var file = files[0];
+    data.append("files", file);
+
+    console.log("Starting image upload...");
+    console.log("File selected:", file);
+
+    $.ajax({
+      type: "POST",
+      url: uploadApi,
+      contentType: false,
+      processData: false,
+      data: data,
+      success: function (data) {
+        console.log("Upload successful, data:", data);
+        // Set the image reference input with the uploaded image path
+        if (Array.isArray(data) && data.length > 0) {
+          editedCourse.ImageRef = imageFolder + data[0];
+        } else if (typeof data === "string") {
+          editedCourse.ImageRef = imageFolder + data;
+        }
+        console.log(
+          "Image URL set to editedCourse.ImageRef:",
+          editedCourse.ImageRef
+        );
+        // Once image upload is successful, edit the course
+        ajaxCall(
+          "PUT",
+          api,
+          JSON.stringify(editedCourse),
+          EditCourseSCB,
+          EditCourseECB
+        );
+      },
+      error: function (error) {
+        console.log("Error uploading image:", error);
+        // If image upload fails, edit the course with default image
+        ajaxCall(
+          "PUT",
+          api,
+          JSON.stringify(editedCourse),
+          EditCourseSCB,
+          EditCourseECB
+        );
+      },
+    });
+  } else {
+    // No file selected, edit the course with default image
+    ajaxCall(
+      "PUT",
+      api,
+      JSON.stringify(editedCourse),
+      EditCourseSCB,
+      EditCourseECB
+    );
+  }
+}
 
 function EditCourseSCB(message) {
   alert("Course updated successfully: " + message);
 }
 
 function EditCourseECB(jqXHR) {
-  console.log("Error:", jqXHR);
+  alert("Error:", jqXHR);
 }
-
-
-function GetCourseEditECB(error) {
-  alert(error);
-}
-

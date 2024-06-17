@@ -35,15 +35,12 @@ namespace UdemyApp.Controllers
 
         // POST api/<UsersController>
         [HttpPost("register")]
-        public bool Post([FromBody] User user)
+        public int Post([FromBody] User user)
         {
-            if (user == null)
-            {
-                return false;
-            }
 
             User newUser = new User(user.Name, user.Email, user.Password);
-            return newUser.Register();
+            DBservices dbs = new DBservices();
+            return dbs.SignUp(newUser.Name, newUser.Email, newUser.Password);
         }
 
         [HttpPost("InsertCourse")]

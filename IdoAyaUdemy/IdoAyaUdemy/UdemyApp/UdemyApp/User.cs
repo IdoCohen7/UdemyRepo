@@ -13,7 +13,6 @@ namespace UdemyApp
         bool isAdmin;
         bool isActive;
 
-        static List<Course> myCourses = new List<Course>();
         static List<User> usersList = new List<User>();
 
         public User(string name, string email, string password)
@@ -47,27 +46,8 @@ namespace UdemyApp
 
         static public User Login(string email, string password)
         {
-            foreach (User user in usersList)
-            {
-                if (user.Email == email && user.Password == password)
-                {
-                    return user;
-                }
-            }
-            return null;
-        }
-
-         public bool Register()
-        {
-            foreach (User other in usersList)
-            {
-                if (this.Id == other.Id)
-                {
-                    return false;
-                }
-            }
-            usersList.Add(this);
-            return true;
+            DBservices dbs = new DBservices();
+            return dbs.Login(email, password);
         }
 
         static public List<User> Read()

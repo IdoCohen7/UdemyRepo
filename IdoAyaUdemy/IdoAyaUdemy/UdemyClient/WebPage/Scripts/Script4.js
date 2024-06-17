@@ -81,7 +81,7 @@ function Login(email, password) {
 }
 
 function LoginSCB(user) {
-  if (user == null) {
+  if (user == null || user.id == 0) {
     alert("ERROR: Password or email mismatch");
   } else {
     var userJson = JSON.stringify(user);
@@ -89,8 +89,8 @@ function LoginSCB(user) {
     localStorage.setItem("loggedIn", true);
     localStorage.setItem("user", userJson);
     $("#loginStatus").text("logged in as " + user.name); // Update login status on the UI
+    window.location.href = "index.html";
   }
-  window.location.href = "index.html";
 }
 
 function LoginECB() {

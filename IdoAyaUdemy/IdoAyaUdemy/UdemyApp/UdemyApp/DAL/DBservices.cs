@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Text;
 using UdemyApp;
+using Microsoft.AspNetCore.Identity;
 
 /// <summary>
 /// DBServices is a class created by me to provides some DataBase Services
@@ -438,6 +439,298 @@ public class DBservices
             }
         }
     }
+
+    private SqlCommand CreateCommandWithStoredProcedure_EditCourse(String spName, SqlConnection con, Course updatedCourse)
+    {
+        SqlCommand cmd = new SqlCommand(); // create the command object
+
+        cmd.Connection = con;              // assign the connection to the command object
+
+        cmd.CommandText = spName;          // can be Select, Insert, Update, Delete 
+
+        cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
+
+        cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be text
+
+        // Add parameters with values from the updatedCourse object
+        cmd.Parameters.AddWithValue("@id", updatedCourse.Id);
+        cmd.Parameters.AddWithValue("@title", updatedCourse.Title ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@url", updatedCourse.Url ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@duration", updatedCourse.Duration);
+        cmd.Parameters.AddWithValue("@image", updatedCourse.ImageRef ?? (object)DBNull.Value);
+
+        return cmd;
+    }
+
+    public int EditCourse(Course editedCourse)
+    {
+        SqlConnection con = null;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+
+            cmd = CreateCommandWithStoredProcedure_EditCourse("SP_EditCourse", con, editedCourse); // create the command
+
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+
+        catch (Exception ex)
+        {
+            throw new Exception("ERROR: Course not edited", ex);
+        }
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+    }
+
+    private SqlCommand CreateCommandWithStoredProcedure_CreateCourse(String spName, SqlConnection con, string title, string url, double duration, int instructor_id, string image)
+    {
+        SqlCommand cmd = new SqlCommand(); // create the command object
+
+        cmd.Connection = con;              // assign the connection to the command object
+
+        cmd.CommandText = spName;          // can be Select, Insert, Update, Delete 
+
+        cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
+
+        cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be text
+
+        // Add parameters with values
+        cmd.Parameters.AddWithValue("@title", title ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@url", url ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@duration", duration);
+        cmd.Parameters.AddWithValue("@instructor_id", instructor_id);
+        cmd.Parameters.AddWithValue("@image", image ?? (object)DBNull.Value);
+
+        return cmd;
+    }
+
+    public int CreateCourse(Course newCourse)
+    {
+        SqlConnection con = null;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+
+            cmd = CreateCommandWithStoredProcedure_CreateCourse("SP_CreateCourse", con, newCourse.Title, newCourse.Url, newCourse.Duration, newCourse.InstructorId, newCourse.ImageRef); // create the command
+
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+
+        catch (Exception ex)
+        {
+            throw new Exception("Couldn't create course", ex);
+        }
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+    }
+
+    private SqlCommand CreateCommandWithStoredProcedure_SignUp(String spName, SqlConnection con, string name, string email, string password)
+    {
+        SqlCommand cmd = new SqlCommand(); // create the command object
+
+        cmd.Connection = con;              // assign the connection to the command object
+
+        cmd.CommandText = spName;          // can be Select, Insert, Update, Delete 
+
+        cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
+
+        cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be text
+
+        // Add parameters with values
+        cmd.Parameters.AddWithValue("@name", name);
+        cmd.Parameters.AddWithValue("@email", email);
+        cmd.Parameters.AddWithValue("@password", password);
+
+        return cmd;
+    }
+
+    public int SignUp(string name, string email, string password)
+    {
+        SqlConnection con = null;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+
+            cmd = CreateCommandWithStoredProcedure_SignUp("SP_SignUp", con, name, email, password); // create the command
+
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+
+        catch (Exception ex)
+        {
+            throw new Exception("Couldn't sign up", ex);
+        }
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+    }
+
+    private SqlCommand CreateCommandWithStoredProcedure_Login(String spName, SqlConnection con, string email, string password)
+    {
+        SqlCommand cmd = new SqlCommand(); // create the command object
+
+        cmd.Connection = con;              // assign the connection to the command object
+
+        cmd.CommandText = spName;          // can be Select, Insert, Update, Delete 
+
+        cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
+
+        cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be text
+
+        // Add parameters with values
+        cmd.Parameters.AddWithValue("@email", email);
+        cmd.Parameters.AddWithValue("@password", password);
+
+        return cmd;
+    }
+
+    public User Login(string email, string password)
+    {
+        SqlConnection con = null;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+            cmd = CreateCommandWithStoredProcedure_Login("SP_Login", con, email, password); // create the command
+
+            User user = new User();
+
+            SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            while (dataReader.Read())
+            {
+                user.Id = Convert.ToInt32(dataReader["id"]);
+                user.Name = dataReader["name"].ToString();
+                user.Email = dataReader["email"].ToString();
+                user.Password = dataReader["password"].ToString();
+                int adminStatus = Convert.ToInt32(dataReader["isAdmin"]);
+                if (adminStatus == 1)
+                {
+                    user.IsAdmin = true;
+                }
+                else
+                {
+                    user.IsAdmin = false;
+                }
+                int activeStatus = Convert.ToInt32(dataReader["isActive"]);
+                if (activeStatus == 1)
+                {
+                    user.IsActive = true;
+                }
+                else
+                {
+                    user.IsActive = false;
+                }
+            }
+
+            return user;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw new Exception("Couldn't retrieve any user", ex);
+        }
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+    }
+
+    private SqlCommand CreateCommandWithStoredProcedure_GetCourse(String spName, SqlConnection con, int id)
+    {
+        SqlCommand cmd = new SqlCommand(); // create the command object
+
+        cmd.Connection = con;              // assign the connection to the command object
+
+        cmd.CommandText = spName;          // can be Select, Insert, Update, Delete 
+
+        cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
+
+        cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be text
+
+        // Add parameters with values
+        cmd.Parameters.AddWithValue("@id", id);
+
+        return cmd;
+    }
+
+    public Course GetCourse(int id)
+    {
+        SqlConnection con = null;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+            cmd = CreateCommandWithStoredProcedure_GetCourse("SP_GetCourse", con, id); // create the command
+
+            Course c = new Course();
+
+            SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            while (dataReader.Read())
+            {
+                c.Id = Convert.ToInt32(dataReader["id"]);
+                c.Title = dataReader["title"].ToString();
+                c.Url = dataReader["url"].ToString();
+                c.Rating = Convert.ToDouble(dataReader["rating"]);
+                c.NumOfReviews = Convert.ToInt32(dataReader["num_reviews"]);
+                c.InstructorId = Convert.ToInt32(dataReader["instructors_id"]);
+                c.ImageRef = dataReader["image"].ToString();
+                c.Duration = Convert.ToDouble(dataReader["duration"]);
+                c.LastUpdate = dataReader["last_update_date"].ToString();
+            }
+
+            return c;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw new Exception("Couldn't retrieve any course", ex);
+        }
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+    }
+
+
+
 
 
 
