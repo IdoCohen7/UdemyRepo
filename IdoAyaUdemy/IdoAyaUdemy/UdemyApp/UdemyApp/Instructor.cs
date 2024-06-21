@@ -8,11 +8,9 @@
         string image;
         string jobTitle;
         
-        static List<Instructor> instructorsList = new List<Instructor>();
 
-        public Instructor(int id, string title, string name, string image, string jobTitle)
+        public Instructor(string title, string name, string image, string jobTitle)
         {
-            Id = id;
             Title = title;
             Name = name;
             Image = image;
@@ -27,23 +25,12 @@
         public string Image { get => image; set => image = value; }
         public string JobTitle { get => jobTitle; set => jobTitle = value; }
 
-        public bool Insert()
-        {
-            for (int i = 0; i < instructorsList.Count; i++)
-            {
-                if (this.Id == instructorsList[i].Id)
-                {
-                    return false;
-                }
-            }
-            instructorsList.Add(this);
-            return true;
-        }
 
         static public List<Instructor> Read()
         {
             DBservices dbs = new DBservices();
             return dbs.ReadInstructors();
         }
+
     }
 }

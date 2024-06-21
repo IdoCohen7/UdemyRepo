@@ -54,10 +54,100 @@ public class DBservices
         return cmd;
     }
 
+    public List<User> ReadUsers()
+    {
+        SqlConnection con = null;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+            cmd = CreateCommandWithStoredProcedureReadCourses("SP_ReadUsers", con); // create the command
+
+            List<User> users = new List<User>();
+
+            SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            while (dataReader.Read())
+            {
+                User u = new User();
+                u.Id = Convert.ToInt32(dataReader["id"]);
+                u.Name = dataReader["name"].ToString();
+                u.Email = dataReader["email"].ToString();
+                u.Password = dataReader["password"].ToString();
+                u.IsAdmin = Convert.ToBoolean(dataReader["isAdmin"]);
+                u.IsActive = Convert.ToBoolean(dataReader["isActive"]);
+                users.Add(u);
+            }
+
+            return users;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+    }
+
+
+
+
+    public List<Object> ReadTopFiveCourses()
+    {
+        SqlConnection con = null;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+            cmd = CreateCommandWithStoredProcedureReadCourses("SP_GetTop5Course", con); // create the command
+
+            List<Object> courses = new List<Object>();
+
+            SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            while (dataReader.Read())
+            {
+                courses.Add(new
+                {
+
+                    Id = Convert.ToInt32(dataReader["CourseID"]),
+                    Title = dataReader["CourseName"].ToString(),
+                    Rating = Math.Round(Convert.ToDouble(dataReader["CourseRating"]), 2),
+                    UsersListed = Convert.ToDouble(dataReader["NumberOfUsers"]),
+
+                });
+            }
+
+            return courses;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+    }
+
     //--------------------------------------------------------------------------------------------------
     // This method reads courses from the courses table 
     //--------------------------------------------------------------------------------------------------
-    public List<Course> ReadCourses()
+    public List<Object> ReadCourses()
     {
         SqlConnection con = null;
         SqlCommand cmd;
@@ -67,25 +157,29 @@ public class DBservices
             con = connect("myProjDB"); // create the connection
             cmd = CreateCommandWithStoredProcedureReadCourses("SP_ReadCoursesFromTable", con); // create the command
 
-            List<Course> courses = new List<Course>();
+            List<Object> courses = new List<Object>();
 
             SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
             while (dataReader.Read())
             {
-                Course c = new Course();
-                c.Id = Convert.ToInt32(dataReader["id"]);
-                c.Title = dataReader["title"].ToString();
-                c.Url = dataReader["url"].ToString();
-                c.Rating = Convert.ToDouble(dataReader["rating"]);
-                c.NumOfReviews = Convert.ToInt32(dataReader["num_reviews"]);
-                c.InstructorId = Convert.ToInt32(dataReader["instructors_id"]);
-                c.ImageRef = dataReader["image"].ToString();
-                c.Duration = Convert.ToDouble(dataReader["duration"]);
-                c.LastUpdate = dataReader["last_update_date"].ToString();
-                courses.Add(c);
+                courses.Add(new
+                {
+                    Id = Convert.ToInt32(dataReader["id"]),
+                    Title = dataReader["title"].ToString(),
+                    Url = dataReader["url"].ToString(),
+                    Rating = Math.Round(Convert.ToDouble(dataReader["rating"]), 2),
+                    NumOfReviews = Convert.ToInt32(dataReader["num_reviews"]),
+                    InstructorId = Convert.ToInt32(dataReader["instructors_id"]),
+                    ImageRef = dataReader["image"].ToString(),
+                    Duration = Convert.ToDouble(dataReader["duration"]),
+                    LastUpdate = ((DateTime)dataReader["last_update_date"]).ToString("dd/MM/yyyy"),
+                    InstructorName = dataReader["name"].ToString(),
+                    IsActive = Convert.ToInt32(dataReader["is_active"])
+                });
             }
-
+            
+            
             return courses;
         }
         catch (Exception ex)
@@ -251,12 +345,58 @@ public class DBservices
                 c.Id = Convert.ToInt32(dataReader["id"]);
                 c.Title = dataReader["title"].ToString();
                 c.Url = dataReader["url"].ToString();
-                c.Rating = Convert.ToDouble(dataReader["rating"]);
+                c.Rating = Math.Round(Convert.ToDouble(dataReader["rating"]), 2);
                 c.NumOfReviews = Convert.ToInt32(dataReader["num_reviews"]);
                 c.InstructorId = Convert.ToInt32(dataReader["instructors_id"]);
                 c.ImageRef = dataReader["image"].ToString();
                 c.Duration = Convert.ToDouble(dataReader["duration"]);
-                c.LastUpdate = dataReader["last_update_date"].ToString();
+                c.LastUpdate = ((DateTime)dataReader["last_update_date"]).ToString("dd/MM/yyyy");
+                courses.Add(c);
+            }
+
+            return courses;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+    }
+
+    public List<Course> ReadInstructorsCourses(int instructorId)
+    {
+        SqlConnection con = null;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("myProjDB"); // create the connection
+            cmd = CreateCommandWithStoredProcedure_ReadUsersCourses("SP_ReadInstructorsCourses", con, instructorId); // create the command
+
+            List<Course> courses = new List<Course>();
+
+            SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            while (dataReader.Read())
+            {
+                Course c = new Course();
+                c.Id = Convert.ToInt32(dataReader["id"]);
+                c.Title = dataReader["title"].ToString();
+                c.Url = dataReader["url"].ToString();
+                c.Rating = Math.Round(Convert.ToDouble(dataReader["rating"]), 2);
+                c.NumOfReviews = Convert.ToInt32(dataReader["num_reviews"]);
+                c.InstructorId = Convert.ToInt32(dataReader["instructors_id"]);
+                c.ImageRef = dataReader["image"].ToString();
+                c.Duration = Convert.ToDouble(dataReader["duration"]);
+                c.LastUpdate = ((DateTime)dataReader["last_update_date"]).ToString("dd/MM/yyyy");
                 courses.Add(c);
             }
 
@@ -368,12 +508,12 @@ public class DBservices
                 c.Id = Convert.ToInt32(dataReader["id"]);
                 c.Title = dataReader["title"].ToString();
                 c.Url = dataReader["url"].ToString();
-                c.Rating = Convert.ToDouble(dataReader["rating"]);
+                c.Rating = Math.Round(Convert.ToDouble(dataReader["rating"]), 2);
                 c.NumOfReviews = Convert.ToInt32(dataReader["num_reviews"]);
                 c.InstructorId = Convert.ToInt32(dataReader["instructors_id"]);
                 c.ImageRef = dataReader["image"].ToString();
                 c.Duration = Convert.ToDouble(dataReader["duration"]);
-                c.LastUpdate = dataReader["last_update_date"].ToString();
+                c.LastUpdate = ((DateTime)dataReader["last_update_date"]).ToString("dd/MM/yyyy");
                 courses.Add(c);
             }
 
@@ -414,12 +554,12 @@ public class DBservices
                 c.Id = Convert.ToInt32(dataReader["id"]);
                 c.Title = dataReader["title"].ToString();
                 c.Url = dataReader["url"].ToString();
-                c.Rating = Convert.ToDouble(dataReader["rating"]);
+                c.Rating = Math.Round(Convert.ToDouble(dataReader["rating"]), 2);
                 c.NumOfReviews = Convert.ToInt32(dataReader["num_reviews"]);
                 c.InstructorId = Convert.ToInt32(dataReader["instructors_id"]);
                 c.ImageRef = dataReader["image"].ToString();
                 c.Duration = Convert.ToDouble(dataReader["duration"]);
-                c.LastUpdate = dataReader["last_update_date"].ToString();
+                c.LastUpdate = ((DateTime)dataReader["last_update_date"]).ToString("dd/MM/yyyy"); 
                 courses.Add(c);
             }
 
@@ -704,12 +844,12 @@ public class DBservices
                 c.Id = Convert.ToInt32(dataReader["id"]);
                 c.Title = dataReader["title"].ToString();
                 c.Url = dataReader["url"].ToString();
-                c.Rating = Convert.ToDouble(dataReader["rating"]);
+                c.Rating = Math.Round(Convert.ToDouble(dataReader["rating"]), 2);
                 c.NumOfReviews = Convert.ToInt32(dataReader["num_reviews"]);
                 c.InstructorId = Convert.ToInt32(dataReader["instructors_id"]);
                 c.ImageRef = dataReader["image"].ToString();
                 c.Duration = Convert.ToDouble(dataReader["duration"]);
-                c.LastUpdate = dataReader["last_update_date"].ToString();
+                c.LastUpdate = ((DateTime)dataReader["last_update_date"]).ToString("dd/MM/yyyy");
             }
 
             return c;
@@ -729,243 +869,51 @@ public class DBservices
         }
     }
 
-
-
-
-
-
-
-
-    //--------------------------------------------------------------------
-    // Build the Insert command String
-    //--------------------------------------------------------------------
-    /*
-    private String BuildInsertCommand(Flight flight)
+    private SqlCommand CreateCommandWithStoredProcedure_ToggleCourseActivity(String spName, SqlConnection con, int id, int value)
     {
-        String command;
-
-        StringBuilder sb = new StringBuilder();
-        // Use a string builder to create the dynamic string
-        sb.AppendFormat("Values('{0}', '{1}', '{2}')", flight.From, flight.To, flight.Price);
-        String prefix = "INSERT INTO Flights_2024 ([from], [to], price) ";
-        command = prefix + sb.ToString();
-
-        return command;
-    }
-
-
-    //---------------------------------------------------------------------------------
-    // Create the SqlCommand
-    //---------------------------------------------------------------------------------
-    private SqlCommand CreateCommand(String CommandSTR, SqlConnection con)
-    {
-
         SqlCommand cmd = new SqlCommand(); // create the command object
 
         cmd.Connection = con;              // assign the connection to the command object
 
-        cmd.CommandText = CommandSTR;      // can be Select, Insert, Update, Delete 
-
-        cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
-
-        cmd.CommandType = System.Data.CommandType.Text; // the type of the command, can also be stored procedure
-
-        return cmd;
-    }
-
-    //--------------------------------------------------------------------
-    // TODO Build the FLight Delete command String method
-    // BuildFlightDeleteCommand(int id)
-    //--------------------------------------------------------------------
-
-    //--------------------------------------------------------------------
-    // TODO Build the FLight Delete  method
-    // DeleteFlight(int id)
-    //--------------------------------------------------------------------
-
-    public int Update(Student student)
-    {
-
-        SqlConnection con;
-        SqlCommand cmd;
-
-        try
-        {
-            con = connect("myProjDB"); // create the connection
-        }
-        catch (Exception ex)
-        {
-            // write to log
-            throw (ex);
-        }
-
-        cmd = CreateCommandWithStoredProcedure("spUpdateStudent1", con, student);             // create the command
-
-        try
-        {
-            int numEffected = cmd.ExecuteNonQuery(); // execute the command
-            return numEffected;
-        }
-        catch (Exception ex)
-        {
-            // write to log
-            throw (ex);
-        }
-
-        finally
-        {
-            if (con != null)
-            {
-                // close the db connection
-                con.Close();
-            }
-        }
-
-    }
-
-    public int Insert(Student student)
-    {
-
-        SqlConnection con;
-        SqlCommand cmd;
-
-        try
-        {
-            con = connect("myProjDB"); // create the connection
-        }
-        catch (Exception ex)
-        {
-            // write to log
-            throw (ex);
-        }
-
-        cmd = CreateCommandWithStoredProcedure("spUpdateStudent1", con, student);             // create the command
-
-        try
-        {
-            int numEffected = cmd.ExecuteNonQuery(); // execute the command
-            return numEffected;
-        }
-        catch (Exception ex)
-        {
-            // write to log
-            throw (ex);
-        }
-
-        finally
-        {
-            if (con != null)
-            {
-                // close the db connection
-                con.Close();
-            }
-        }
-
-    }
-
-    public int Delete(int id)
-    {
-        SqlConnection con;
-        SqlCommand cmd;
-
-        try
-        {
-            con = connect("myProjDB"); // create the connection
-        }
-        catch (Exception ex)
-        {
-            // write to log
-            throw (ex);
-        }
-
-        cmd = CreateCommandWithStoredProcedure("SP_DeleteFlightByID", con, id);             // create the command
-
-        try
-        {
-            int numEffected = cmd.ExecuteNonQuery(); // execute the command
-            return numEffected;
-        }
-        catch (Exception ex)
-        {
-            // write to log
-            throw (ex);
-        }
-
-        finally
-        {
-            if (con != null)
-            {
-                // close the db connection
-                con.Close();
-            }
-        }
-    }
-
-    private SqlCommand CreateCommandWithStoredProcedure(String spName, SqlConnection con, Flight flight)
-    {
-
-        SqlCommand cmd = new SqlCommand(); // create the command object
-
-        cmd.Connection = con;              // assign the connection to the command object
-
-        cmd.CommandText = spName;      // can be Select, Insert, Update, Delete 
+        cmd.CommandText = spName;          // can be Select, Insert, Update, Delete 
 
         cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
 
         cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be text
 
-        cmd.Parameters.AddWithValue("@from", flight.From);
-
-        cmd.Parameters.AddWithValue("@to", flight.To);
-
-        cmd.Parameters.AddWithValue("@price", flight.Price);
-
-
-        return cmd;
-    }
-
-    private SqlCommand CreateCommandWithStoredProcedure(String spName, SqlConnection con, int id)
-    {
-
-        SqlCommand cmd = new SqlCommand(); // create the command object
-
-        cmd.Connection = con;              // assign the connection to the command object
-
-        cmd.CommandText = spName;      // can be Select, Insert, Update, Delete 
-
-        cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
-
-        cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be text
-
+        // Add parameters with values
         cmd.Parameters.AddWithValue("@id", id);
-
+        cmd.Parameters.AddWithValue("@value", value);
 
         return cmd;
     }
 
-    private SqlCommand CreateCommandWithStoredProcedure(String spName, SqlConnection con, Student student)
+    public int ToggleCourseActivity(int id, int value)
     {
+        SqlConnection con = null;
+        SqlCommand cmd;
 
-        SqlCommand cmd = new SqlCommand(); // create the command object
+        try
+        {
+            con = connect("myProjDB"); // create the connection
 
-        cmd.Connection = con;              // assign the connection to the command object
+            cmd = CreateCommandWithStoredProcedure_ToggleCourseActivity("SP_SetCourseStatus", con, id, value); // create the command
 
-        cmd.CommandText = spName;      // can be Select, Insert, Update, Delete 
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
 
-        cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
-
-        cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be text
-
-        cmd.Parameters.AddWithValue("@id", student.Id);
-
-        cmd.Parameters.AddWithValue("@name", student.Name);
-
-        cmd.Parameters.AddWithValue("@age", student.Age);
-
-
-        return cmd;
+        catch (Exception ex)
+        {
+            throw new Exception("Error: couldn't set course status", ex);
+        }
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
     }
-    */
 }
-
-

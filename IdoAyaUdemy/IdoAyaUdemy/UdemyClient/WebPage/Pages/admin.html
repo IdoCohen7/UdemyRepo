@@ -2,24 +2,32 @@
   <head>
     <title>Udemy | Online Courses</title>
     <link rel="icon" href="../img/favicon.ico" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <script
       src="https://code.jquery.com/jquery-3.7.1.js"
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css"
+    />
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
   </head>
   <body>
     <header>
       <img
-      src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
-      style="
-        margin-left: 48px;
-        padding-top: 15px;
-        width: 80px;
-        margin-right: 30px;
-      "
-    />
+        src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
+        style="
+          margin-left: 48px;
+          padding-top: 15px;
+          width: 80px;
+          margin-right: 30px;
+        "
+      />
       <button class="header-button" onclick="window.location.href='index.html'">
         Home
       </button>
@@ -45,25 +53,29 @@
       </div>
     </header>
     <main>
-      <div id="adminFunc">    
-    <button class="once-button" id="createCourseBttn">
-      <i class="fas fa-plus"></i> Create new course
-    </button>
+      <div id="adminFunc">
+        <button class="once-button" id="showAllCourses">
+          Show All Courses
+        </button>
+        <button class="once-button" id="createCourseBttn">
+          <i class="fas fa-plus"></i> Create new course
+        </button>
+        <div id="editCourse">
+          <label for="browser">Choose a course from the list:</label>
+          <input list="browsers" id="browser" name="browser" />
+          <datalist id="browsers"> </datalist>
+          <button id="submitButton">Edit</button>
+        </div>
       </div>
-      <div id="adminPage">
-        <div id="newCourse"></div>
-          
-      <table id="adminTable"></table>
-      <label for="browser">Choose a course from the list:</label>
-      <input list="browsers" id="browser" name="browser">
-      <datalist id="browsers">
-      </datalist>
-      <button id="submitButton">Edit</button>
-      <div id="editDiv"></div>
+      <div id="newCourse"></div>
 
+      <div id="coursesManage"></div>
+      <table id="adminTable"></table>
+
+      <div id="editDiv"></div>
     </main>
-    <script  src="../Scripts/JoinedScript.js"></script>
-    <script  src="../Scripts/adminScript.js"></script>
+    <script src="../Scripts/JoinedScript.js"></script>
+    <script src="../Scripts/adminScript.js"></script>
     <link href="../CSS/Style.css" rel="stylesheet" />
-  </body>
+  </body>
 </html>

@@ -21,6 +21,8 @@ function GetCoursesSCB(coursesList) {
 }
 
 $("#createCourseBttn").click(function () {
+  playSound("Login.mp3");
+  clearAdminContent();
   let newForm = document.createElement("form");
   newForm.id = "createCourseForm";
 
@@ -230,6 +232,8 @@ function createCourseECB(jqXHR) {
 
 $(document).ready(function () {
   $("#submitButton").on("click", function () {
+    clearAdminContent();
+    playSound("Login.mp3");
     var inputVal = $("#browser").val();
     var selectedOption = $("#browsers option[value='" + inputVal + "']");
     var additionalData = selectedOption.data("id");
@@ -455,4 +459,102 @@ function EditCourseSCB(message) {
 
 function EditCourseECB(jqXHR) {
   alert("Error:", jqXHR);
+}
+
+function clearAdminContent() {
+  let div = document.getElementById("editDiv");
+  div.innerHTML = "";
+  let table = document.getElementById("coursesManage");
+  table.innerHTML = "";
+  let nDiv = document.getElementById("newCourse");
+  nDiv.innerHTML = "";
+
+  let onceButtons = document.querySelectorAll(".disabled-button");
+  onceButtons.forEach((button) => {
+    button.classList.remove("disabled-button");
+    button.classList.add("once-button");
+  });
+}
+
+$("#showAllCourses").on("click", function () {
+  playSound("Login.mp3");
+  clearAdminContent();
+  let api = "https://localhost:7061/api/Courses";
+  ajaxCall("GET", api, null, showDataTable, showDataTableECB);
+});
+
+function showDataTable(allCourses) {
+  let table = $(
+    '<table id="coursesDT" class="display" style="width:100%"></table>'
+  );
+  let thead = $(
+    "<thead><tr><th>ID</th><th>Title</th><th>URL</th><th>Rating</th><th>Number of Reviews</th><th>Instructor ID</th><th>Image</th><th>Duration (hours)</th><th>Last Update</th><th>Instructor Name</th><th>Active</th></tr></thead>"
+  );
+
+  let tbody = $("<tbody></tbody>");
+  table.append(thead);
+  table.append(tbody);
+
+  // Append table to the container
+  $("#coursesManage").append(table);
+
+  // Initialize DataTable
+  $("#coursesDT").DataTable({
+    data: allCourses,
+    columns: [
+      { data: "id" },
+      { data: "title" },
+      { data: "url" },
+      { data: "rating" },
+      { data: "numOfReviews" },
+      { data: "instructorId" },
+      {
+        data: "imageRef",
+        render: function (data, type, row) {
+          return `<img src="${data}" alt="Course Image" style="width: 100px;">`;
+        },
+      },
+      { data: "duration" },
+      { data: "lastUpdate" },
+      { data: "instructorName" },
+      {
+        data: "isActive",
+        render: function (data, type, row) {
+          return `<input type="checkbox" class="isActive-checkbox" data-id="${
+            row.id
+          }" ${data == 1 ? "checked" : ""}>`;
+        },
+        orderable: false,
+      },
+    ],
+  });
+
+  $("#coursesDT tbody").on("change", ".isActive-checkbox", function () {
+    let courseId = $(this).data("id");
+    let isActive = $(this).is(":checked") ? 1 : 0;
+
+    // Call function to update the course status in the database
+    updateCourseStatus(courseId, isActive);
+  });
+}
+
+function showDataTableECB(error) {
+  alert(error);
+}
+
+function updateCourseStatus(courseId, isActive) {
+  let api =
+    "https://localhost:7061/api/Courses/Status?id=" +
+    courseId +
+    "&value=" +
+    isActive;
+  ajaxCall("PUT", api, null, updateCourseStatusSCB, updateCourseStatusECB);
+}
+
+function updateCourseStatusSCB() {
+  alert("Course status updated!");
+}
+
+function updateCourseStatusECB(error) {
+  alert(error);
 }

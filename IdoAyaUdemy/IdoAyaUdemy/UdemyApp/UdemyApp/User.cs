@@ -4,7 +4,6 @@ namespace UdemyApp
 {
     public class User
     {
-        private static int nextId = 1;
 
         int id;
         string name;
@@ -13,11 +12,8 @@ namespace UdemyApp
         bool isAdmin;
         bool isActive;
 
-        static List<User> usersList = new List<User>();
-
         public User(string name, string email, string password)
         {
-            Id = nextId++; 
             Name = name;
             Email = email;
             Password = password;
@@ -26,15 +22,6 @@ namespace UdemyApp
         }
 
         public User() { }
-
-        // adding admin user
-        static User()
-        {
-            if (usersList.Count == 0)
-            {
-                usersList.Add(new User("admin", "admin@admin.com", "admin") { IsAdmin = true, IsActive = true });
-            }
-        }
 
 
         public int Id { get => id; set => id = value; }
@@ -52,7 +39,8 @@ namespace UdemyApp
 
         static public List<User> Read()
         {
-            return usersList;
+            DBservices db = new DBservices();
+            return db.ReadUsers();
         }
 
         public static int insertCourse(int userId, int courseId)

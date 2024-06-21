@@ -16,6 +16,20 @@ namespace UdemyApp.Controllers
             return Instructor.Read();
         }
 
+        [HttpGet("{id}/courses")]
+        public IActionResult GetCourses(int id)
+        {
+            DBservices dBservices = new DBservices();
+            var courses = dBservices.ReadInstructorsCourses(id);
+
+            if (courses == null || courses.Count == 0)
+            {
+                return NotFound(); // Return 404 if no courses found
+            }
+
+            return Ok(courses);
+        }
+
         // GET api/<InstructorsController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
@@ -34,7 +48,7 @@ namespace UdemyApp.Controllers
         [HttpPost]
         public bool Post([FromBody] Instructor instructor)
         {
-            return instructor.Insert();
+            return true;
         }
 
         // PUT api/<InstructorsController>/5

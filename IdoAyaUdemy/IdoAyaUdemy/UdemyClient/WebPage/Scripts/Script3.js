@@ -48,10 +48,24 @@ function loadInstructorsTable(list) {
     let info = document.createElement("div");
     info.innerHTML += instructor.jobTitle + "</p>";
     info.classList.add("course-info");
+
+    let button = document.createElement("button");
+    button.innerText = "Show Courses";
+    button.classList.add("enroll-button");
+    button.style.float = "right";
+    button.addEventListener("click", function () {
+      playSound("Add.mp3");
+      openModal(instructor.id);
+    });
+
+    cell.appendChild(button);
+
     cell.appendChild(info);
 
     row.appendChild(cell); // Append the cell to the current row
   });
 }
 
-GetInstructors();
+$(document).ready(function () {
+  GetInstructors();
+});

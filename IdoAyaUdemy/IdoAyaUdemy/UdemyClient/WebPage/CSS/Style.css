@@ -48,13 +48,14 @@ header {
 #loginStatus {
   font-family: "CustomFont", sans-serif;
   color: #a435f0;
-  background: #e2e4e7;
   font-size: 18px;
   margin: 20px;
-  padding: 5px 10px;
   text-align: center;
   padding-bottom: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0; /* צבע רקע אפור בהיר */
+  border-radius: 15px; /* פינות מעוגלות */
+  padding: 5px; /* רווח פנימי */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* צל עדין */
 }
 
 .header-button:hover,
@@ -79,7 +80,8 @@ hr {
 #coursesTable td,
 #aCoursesTable td,
 #instructorsTable td,
-#adminTable td {
+#adminTable td,
+#modalCourses td {
   padding: 20px;
   border-width: 0 0 1px 0;
   border-style: solid;
@@ -90,7 +92,8 @@ hr {
 #coursesTable img,
 #aCoursesTable img,
 #instructorsTable img,
-#adminTable img {
+#adminTable img,
+#modalCourses img {
   max-width: 300px;
   float: left;
   margin-right: 50px;
@@ -114,7 +117,8 @@ hr {
   color: #2d2f31;
 }
 .enroll-button,
-.once-button {
+.once-button,
+#submitEdit {
   font-family: "CustomFont", sans-serif;
   background-color: #a435f0;
   color: white;
@@ -182,7 +186,7 @@ hr {
 #adminFunc {
   display: flex;
   margin: 20px auto;
-  justify-content: center;
+  justify-content: space-evenly;
   background: #2d2f31;
 }
 
@@ -484,6 +488,8 @@ section {
 
 #newCourseTable tr {
   margin-bottom: 5px; /* מרווח בין השורות */
+  display: flex;
+  justify-content: center;
 }
 
 #newCourseTable td {
@@ -591,11 +597,12 @@ button[type="submit"] {
   border-radius: 50%;
 }
 
-#adminFunc {
+#adminFunc,
+#editCourse {
   display: flex;
   flex-wrap: wrap;
   align-content: space-around;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   color: #ffffff;
   font-size: 20px;
@@ -604,11 +611,13 @@ button[type="submit"] {
   height: 40px;
   width: 500px;
 }
+
 label[for="browser"] {
   margin-right: 20px;
 }
 
-#adminFunc button {
+#adminFunc button,
+#editCourse button {
   flex-grow: 1;
   max-width: 200px; /* קבעתי מרווח מקסימלי */
 }
@@ -624,7 +633,7 @@ label[for="browser"] {
   display: inline-block;
   font-size: 17px;
   cursor: pointer;
-  margin-top: 10px;
+  margin: 10px;
 }
 #editDiv {
   display: flex;
@@ -667,4 +676,39 @@ label[for="browser"] {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+#topFive,
+#fiveHeader {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #f4eefc;
+}
+
+#fiveDetailsDiv {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#topCourse {
+  background-color: #f0f0f0; /* צבע רקע אפור בהיר */
+  border-radius: 15px; /* פינות מעוגלות */
+  padding: 20px; /* רווח פנימי */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* צל עדין */
+  width: 200px; /* רוחב קבוע */
+  height: 200px; /* גובה קבוע */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* מיקום מרכזי של הטקסט */
+  margin: 10px; /* מרווח חיצוני */
+}
+
+#editForm,
+#createCourseForm {
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding inside the form */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }

@@ -16,7 +16,6 @@ namespace UdemyApp
         string lastUpdate;
         bool isActive;
 
-        static List<Course> coursesList = new List<Course>();
 
         public Course(string title, string url, double rating, int numOfReviews, int instructorId, string imageRef, double duration)
         {
@@ -47,32 +46,13 @@ namespace UdemyApp
         public string LastUpdate { get => lastUpdate; set => lastUpdate = value; }
         public bool IsActive  { get => isActive; set => isActive = value; }
 
-        public bool Insert()
-        {
-            for (int i = 0; i < coursesList.Count; i++)
-            {
-                Course course = coursesList[i];
-                if (course != null)
-                {
-                    if (this.Id == course.Id || this.title == course.title)
-                    {
-                        return false;
-                    }
-                }
-                
-            }
-            coursesList.Add(this);
-            return true;
-        }
-
-        static public List<Course> Read()
+        static public List<Object> Read()
         {
             DBservices dbs = new DBservices();
             return dbs.ReadCourses();
         }
         public void Delete()
         {
-            coursesList.Remove(this);
         }
 
         public static List<Course> GetCoursesByDuration(int userId, float min, float max)
@@ -87,6 +67,11 @@ namespace UdemyApp
             return dbs.ReadCoursesByRating(userId, min, max);
         }
 
+        public int ToggleActivity(int id, int value)
+        {
+            DBservices db = new DBservices();
+            return db.ToggleCourseActivity(id, value);
+        }
 
     }
 }

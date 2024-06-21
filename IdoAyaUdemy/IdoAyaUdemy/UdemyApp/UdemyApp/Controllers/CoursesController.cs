@@ -12,9 +12,16 @@ namespace UdemyApp.Controllers
     {
         // GET: api/<CoursesController>
         [HttpGet]
-        public IEnumerable<Course> Get()
+        public IEnumerable<Object> Get()
         {
             return Course.Read();
+        }
+
+        [HttpGet("TopFive")]
+        public IEnumerable<Object> GetTopFive()
+        {
+            DBservices dBservices = new DBservices();
+            return dBservices.ReadTopFiveCourses();
         }
 
         // GET api/<CoursesController>/5
@@ -47,6 +54,14 @@ namespace UdemyApp.Controllers
 
             }
             return false;
+        }
+
+        // PUT api/<CoursesController>/5
+        [HttpPut("Status")]
+        public int SetStatus(int id, int value)
+        {
+           Course course = new Course();
+           return course.ToggleActivity(id, value);
         }
 
         // DELETE api/<CoursesController>/5

@@ -222,6 +222,7 @@ function loadPage() {
   let durStartBttn = document.getElementById("durStartBttn");
   let durEndBttn = document.getElementById("durEndBttn");
   durationBttn.addEventListener("click", function () {
+    playSound("Remove.mp3");
     searchByDuration(durStartBttn.value, durEndBttn.value);
   });
 
@@ -229,6 +230,7 @@ function loadPage() {
   let rateStartBttn = document.getElementById("rateStartBttn");
   let rateEndBttn = document.getElementById("rateEndBttn");
   rateBttn.addEventListener("click", function () {
+    playSound("Remove.mp3");
     searchByRating(rateStartBttn.value, rateEndBttn.value);
   });
 }
