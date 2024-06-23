@@ -1,5 +1,5 @@
 function ShowAllCourses() {
-  let api = "https://localhost:7061/api/Courses";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Courses";
   setTimeout(ajaxCall("GET", api, "", GetCoursesSCB, GetCoursesECB), 12000000);
 }
 
@@ -127,16 +127,16 @@ $("#createCourseBttn").click(function () {
 
 function createCourse() {
   let api =
-    "https://localhost:7061/api/Instructors/" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Instructors/" +
     $("#newCourseInstructorId").val();
   ajaxCall("GET", api, null, secondCreateCourse, getInstructorECB);
 }
 
 function secondCreateCourse(instructor) {
   if (instructor != null) {
-    let api = "https://localhost:7061/api/Courses";
-    let uploadApi = "https://localhost:7061/api/Upload";
-    let imageFolder = "https://localhost:7061/images/";
+    let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Courses";
+    let uploadApi = "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Upload";
+    let imageFolder = "https://proj.ruppin.ac.il/cgroup75/test2/tar5/images/";
 
     let newCourse = {
       Title: $("#newCoursetitle").val(),
@@ -245,7 +245,9 @@ $(document).ready(function () {
       console.log("No additional data for:", inputVal);
     }
 
-    let api = "https://localhost:7061/api/Courses/" + additionalData;
+    let api =
+      "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Courses/" +
+      additionalData;
 
     ajaxCall("GET", api, null, GetCourseEditSCB, GetCourseEditECB);
   });
@@ -375,9 +377,9 @@ function GetCourseEditECB(error) {
 }
 
 function EditCourse(course) {
-  let api = "https://localhost:7061/api/Courses/";
-  let uploadApi = "https://localhost:7061/api/Upload";
-  let imageFolder = "https://localhost:7061/images/";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Courses/";
+  let uploadApi = "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Upload";
+  let imageFolder = "https://proj.ruppin.ac.il/cgroup75/test2/tar5/images/";
 
   let editedCourse = {
     Id: course.id,
@@ -479,7 +481,7 @@ function clearAdminContent() {
 $("#showAllCourses").on("click", function () {
   playSound("Login.mp3");
   clearAdminContent();
-  let api = "https://localhost:7061/api/Courses";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Courses";
   ajaxCall("GET", api, null, showDataTable, showDataTableECB);
 });
 
@@ -544,7 +546,7 @@ function showDataTableECB(error) {
 
 function updateCourseStatus(courseId, isActive) {
   let api =
-    "https://localhost:7061/api/Courses/Status?id=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Courses/Status?id=" +
     courseId +
     "&value=" +
     isActive;

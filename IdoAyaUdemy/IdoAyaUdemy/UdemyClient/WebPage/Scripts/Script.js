@@ -1,6 +1,6 @@
 // Assuming `user` variable is already declared in JoinedScript.js
 function GetCoursesTable() {
-  let api = "https://localhost:7061/api/Courses";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Courses";
   ajaxCall("GET", api, null, loadCoursesTable, GetCoursesTableECB);
 }
 
@@ -38,7 +38,7 @@ function PostCoursesECB(err) {
 function PostToServer(id) {
   if (user != null) {
     let api =
-      "https://localhost:7061/api/Users/InsertCourse?userId=" +
+      "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Users/InsertCourse?userId=" +
       user.id +
       "&courseId=" +
       id;
@@ -56,7 +56,7 @@ function PostToServer(id) {
 }
 
 function loadTopFive() {
-  let api = "https://localhost:7061/api/Courses/TopFive";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Courses/TopFive";
   ajaxCall("GET", api, null, displayTopFive, loadTopFiveECB);
 }
 

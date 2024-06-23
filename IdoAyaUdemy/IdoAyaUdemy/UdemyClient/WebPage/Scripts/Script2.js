@@ -205,7 +205,8 @@ function GetCoursesECB(err) {
 
 function GetFromServer() {
   if (user != null) {
-    let api = "https://localhost:7061/api/Users/" + user.id;
+    let api =
+      "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Users/" + user.id;
     setTimeout(
       ajaxCall("GET", api, null, GetCoursesSCB, GetCoursesECB),
       9000000
@@ -236,7 +237,11 @@ function loadPage() {
 }
 
 function RemoveCourse(id) {
-  let api = "https://localhost:7061/api/Users/uId/" + user.id + "/cId/" + id;
+  let api =
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Users/uId/" +
+    user.id +
+    "/cId/" +
+    id;
 
   ajaxCall("DELETE", api, null, DeleteCourseSCB, DeleteCourseECB);
   location.reload();
@@ -249,7 +254,8 @@ function DeleteCourseECB(ERROR) {
 }
 
 function searchByDuration(start, end) {
-  let api = "https://localhost:7061/api/Courses/getByDurationRange";
+  let api =
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Courses/getByDurationRange";
   ajaxCall(
     "GET",
     api,
@@ -261,7 +267,7 @@ function searchByDuration(start, end) {
 
 function searchByRating(start, end) {
   let api =
-    "https://localhost:7061/api/Courses/getByRatingRange/id/" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Courses/getByRatingRange/id/" +
     user.id +
     "/start/" +
     start +

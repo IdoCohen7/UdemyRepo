@@ -99,7 +99,10 @@ function openModal(id) {
     }
   };
 
-  let api = "https://localhost:7061/api/Instructors/" + id + "/courses";
+  let api =
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/Instructors/" +
+    id +
+    "/courses";
   ajaxCall("GET", api, null, modalCoursesSCB, modalCoursesECB);
 }
 

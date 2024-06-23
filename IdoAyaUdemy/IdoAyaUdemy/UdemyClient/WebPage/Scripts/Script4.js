@@ -70,7 +70,7 @@ function ajaxCall(method, api, data, successCB, errorCB) {
 }
 
 function Login(email, password) {
-  let api = "https://localhost:7061/api/Users/Login";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Users/Login";
   ajaxCall(
     "GET",
     api,
@@ -100,7 +100,7 @@ function LoginECB() {
 }
 
 function SignUp(name, email, password) {
-  let api = "https://localhost:7061/api/Users/register";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar5/api/Users/register";
   let newUser = { name: name, email: email, password: password };
   ajaxCall("POST", api, JSON.stringify(newUser), SignUPSCB, SignUPECB);
 }
