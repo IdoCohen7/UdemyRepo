@@ -29,7 +29,3 @@
 - `SQL Server`
 - Entity Framework / Stored Procedures
 
----
-
-## 📁 מבנה הפרויקט
-
